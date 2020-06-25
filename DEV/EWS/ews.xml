@@ -1,0 +1,149 @@
+<bundle-app name="EWS-${env}-bundl" xmlns="uri:oozie:bundle:0.2">
+  <controls>
+    <kick-off-time>${kickOffTime}</kick-off-time>
+  </controls>
+  <coordinator name="EWS-RCL-Ingest-Daily-${env}-coord">
+    <app-path>/projects/ews/oozie/rcl-ingest/rcl_coordinator.xml</app-path>
+    <configuration>
+      <property>
+        <name>startTime</name>
+        <value>${rclStartTime}</value>
+      </property>
+    </configuration>
+  </coordinator>
+  <coordinator name="EWS-VHCL-RCL-Ingest-Incremental-Daily-${env}-coord">
+    <app-path>/projects/ews/oozie/vhcl-rcl-ingest-solr/vhcl_rcl_coordinator.xml</app-path>
+    <configuration>
+      <property>
+        <name>startTime</name>
+        <value>${vhclRclStartTime}</value>
+      </property>
+    </configuration>
+  </coordinator>
+  <coordinator name="EWS-VOQ-Ingest-Daily-${env}-coord">
+    <app-path>/projects/ews/oozie/voq-ingest-solr/voq_coordinator.xml</app-path>
+    <configuration>
+      <property>
+        <name>startTime</name>
+        <value>${voqStartTime}</value>
+      </property>
+    </configuration>
+  </coordinator>
+  <coordinator name="EWS-NHTSA-RCL-Ingest-Daily-${env}-coord">
+    <app-path>/projects/ews/oozie/nhtsa-rcl-ingest-solr/nhtsa_rcl_coordinator.xml</app-path>
+    <configuration>
+      <property>
+        <name>startTime</name>
+        <value>${nhtsaRclStartTime}</value>
+      </property>
+    </configuration>
+  </coordinator>
+  <coordinator name="EWS-NHTSA-IVSTGN-Ingest-Daily-${env}-coord">
+    <app-path>/projects/ews/oozie/nhtsa-ivstgn-ingest-solr/nhtsa_ivstgn_coordinator.xml</app-path>
+    <configuration>
+      <property>
+        <name>startTime</name>
+        <value>${ivstgnStartTime}</value>
+      </property>
+    </configuration>
+  </coordinator>
+  <coordinator name="EWS-NHTSA-SVC-Ingest-Daily-${env}-coord">
+    <app-path>/projects/ews/oozie/nhtsa-svc-ingest/nhtsa_svc_coordinator.xml</app-path>
+    <configuration>
+      <property>
+        <name>startTime</name>
+        <value>${svcStartTime}</value>
+      </property>
+    </configuration>
+  </coordinator>
+  <coordinator name="EWS-RO-Solr-Indexing-Daily-${env}-coord">
+    <app-path>/projects/ews/oozie/ro-solr/ro_coordinator.xml</app-path>
+    <configuration>
+      <property>
+        <name>startTime</name>
+        <value>${roStartTime}</value>
+      </property>
+    </configuration>
+  </coordinator>
+  <coordinator name="EWS-WRNTY-Solr-Indexing-Daily-${env}-coord">
+    <app-path>/projects/ews/oozie/wrnty-solr/wrnty_coordinator.xml</app-path>
+    <configuration>
+      <property>
+        <name>startTime</name>
+        <value>${wrntyStartTime}</value>
+      </property>
+    </configuration>
+  </coordinator>
+  <coordinator name="EWS-TECHLINE-Solr-Indexing-Daily-${env}-coord">
+    <app-path>/projects/ews/oozie/techline-solr/techline_coordinator.xml</app-path>
+    <configuration>
+      <property>
+        <name>startTime</name>
+        <value>${techlineStartTime}</value>
+      </property>
+    </configuration>
+  </coordinator>
+  <coordinator name="EWS-CA-Solr-Indexing-Daily-${env}-coord">
+    <app-path>/projects/ews/oozie/ca-solr/ca_coordinator.xml</app-path>
+    <configuration>
+      <property>
+        <name>startTime</name>
+        <value>${caStartTime}</value>
+      </property>
+    </configuration>
+  </coordinator>
+  <coordinator name="EWS-VHCL-Solr-Indexing-Daily-${env}-coord">
+    <app-path>/projects/ews/oozie/vhcl-solr/vhcl_coordinator.xml</app-path>
+    <configuration>
+      <property>
+        <name>startTime</name>
+        <value>${vhclStartTime}</value>
+      </property>
+    </configuration>
+  </coordinator>
+  <coordinator name="EWS-ML-Predict-Incremental-Daily-${env}-coord">
+    <app-path>/projects/ews/oozie/machine-learning-predict/pred_coordinator.xml</app-path>
+    <configuration>
+      <property>
+        <name>startTime</name>
+        <value>${mlStartTime}</value>
+      </property>
+    </configuration>
+  </coordinator>
+  <coordinator name="EWS-Solr-Reprocess-Weekly-${env}-coord">
+    <app-path>/projects/ews/oozie/solr-reprocess-weekly/solr_reprocess_weekly_coordinator.xml</app-path>
+    <configuration>
+      <property>
+        <name>startTime</name>
+        <value>${solrReprocessWeeklyStartTime}</value>
+      </property>
+    </configuration>
+  </coordinator>
+  <coordinator name="EWS-Drive-Common-Ingest-Daily-${env}-coord">
+    <app-path>/projects/ews/oozie/drive-ingest-daily/drive_common_ingest_daily_coordinator.xml</app-path>
+    <configuration>
+      <property>
+        <name>startTime</name>
+        <value>${archStartTime}</value>
+      </property>
+    </configuration>
+  </coordinator>
+  <coordinator name="EWS-drive-prjct-Solr-Indexing-Daily-${env}-coord">
+    <app-path>/projects/ews/oozie/drive-prjct-ingest/drive_prjct_coordinator.xml</app-path>
+    <configuration>
+      <property>
+        <name>startTime</name>
+        <value>${drveprjStartTime}</value>
+      </property>
+    </configuration>
+  </coordinator>
+  <coordinator name="EWS-drive-tr-Solr-Indexing-Daily-${env}-coord">
+    <app-path>/projects/ews/oozie/drive-tr-ingest/drive_tr_coordinator.xml</app-path>
+    <configuration>
+      <property>
+        <name>startTime</name>
+        <value>${drvetrStartTime}</value>
+      </property>
+    </configuration>
+  </coordinator>
+</bundle-app>
