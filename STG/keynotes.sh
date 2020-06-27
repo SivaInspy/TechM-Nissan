@@ -61,3 +61,7 @@ MQR
 EQUIP Ingest & Monitoring
 QCS
 Gears
+
+
+
+Equip Master Deployment Log		https://confluence.na.nissan.biz/pages/viewpage.action?spaceKey=TCSFQI&title=EQUIP+Master+Deployment+Log
