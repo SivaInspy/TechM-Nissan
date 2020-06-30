@@ -7,8 +7,6 @@ sqoop import --connect jdbc:oracle:thin:@10.78.78.155:58532/OSDBEFLO --query "se
 
 sqoop import --connect jdbc:oracle:thin:@10.78.78.155:58532/OSDBEFLO --query "select INCDNT_IVSTGN_RPT_FORM_NM,TRD_CD,TRD_CD_DS,CAST('x987731' as VARCHAR(10)) as CRTE_USR_ID,CURRENT_TIMESTAMP as CRTE_TS,CMPST_KY,UPDT_TS from BID_TRD_VS.INCDNT_IVSTGN_TRD_EXTRCT_VW WHERE \$CONDITIONS" --target-dir hdfs://bdestg/data/lgl_iir/raw/incdnt_ivstgn_trd_raw --fields-terminated-by '\001' --null-string '' --null-non-string '' --escaped-by '\\' --check-column UPDT_TS --incremental 'lastmodified' --hive-drop-import-delims --merge-key INCDNT_IVSTGN_RPT_FORM_NM --last-value '0001-01-01 00:00:00.000' --username 'BDESELECT' --password-file hdfs://bdestg/projects/ews/lib/.bidwPassword -m 1
 
-
-
 sqoop import --connect jdbc:oracle:thin:@usnencvl916.nmcorp.nissan.biz:58532/ODDBFQIA --username TCS_ETL --password 'Nissan123$' --query "SELECT CSTMR_STSFCN_TEAM_KY,CSTMR_STSFCN_PARNT_TEAM_KY,CSTMR_STSFCN_TEAM_CD,CSTMR_STSFCN_TEAM_NM FROM MNS_TCS_TRN.CSTMR_STSFCN_TEAM WHERE \$CONDITIONS" --target-dir hdfs://bdedev/data/equip/cstmr_stsfcn_team --fields-terminated-by '|' -m 1
 
 sqoop import --connect jdbc:oracle:thin:@usnencvl728.nmcorp.nissan.biz:58532/OSDBFQIA --username TCS_ETL --password 'nissan21' --query "SELECT CSTMR_STSFCN_TEAM_KY,CSTMR_STSFCN_PARNT_TEAM_KY,CSTMR_STSFCN_TEAM_CD,CSTMR_STSFCN_TEAM_NM FROM MNS_TCS_TRN.CSTMR_STSFCN_TEAM WHERE \$CONDITIONS" --target-dir hdfs://bdedev/data/equip/cstmr_stsfcn_team --fields-terminated-by '|' -m 1
@@ -45,9 +43,7 @@ EWS-drive-Ingest-Inc-daily-Stg-wf
 
 Entry delete - IIR with N Indicator
 
-
 INSERT OVERWRITE table bde_stats.DATA_EXTRCN_RULE VALUES('EWS-Drive-Ingest-Inc-daily','gcars',1,'sqoop-dflt',8,'EWS_Drive_Ingest_Inc_daily.ini','/projects/ews/scripts/spark/search/conf','/etc/security/keytabs/x987731.keytab','x987731@NMCORP.NISSAN.BIZ','N','drive_sqoop','2019-12-04 00:00:00','drive_sqoop','2019-12-04 00:00:00'), ('EWS-IIR-Ingest-Inc-daily','iir',1,'sqoop-dflt',9,'EWS_IIR_Ingest_Inc_daily.ini','/projects/ews/scripts/spark/search/conf','','/etc/security/keytabs/x987731.keytab x987731@NMCORP.NISSAN.BIZ','N','drive_sqoop','2020-06-01','drive_sqoop','2020-06-01');
-
 
 Claims
 CA
@@ -62,6 +58,5 @@ EQUIP Ingest & Monitoring
 QCS
 Gears
 
-
-
-Equip Master Deployment Log		https://confluence.na.nissan.biz/pages/viewpage.action?spaceKey=TCSFQI&title=EQUIP+Master+Deployment+Log
+ResumeEquip Master Deployment Log		https://confluence.na.nissan.biz/pages/viewpage.action?spaceKey=TCSFQI&title=EQUIP+Master+Deployment+Log
+https://text-compare.com/
