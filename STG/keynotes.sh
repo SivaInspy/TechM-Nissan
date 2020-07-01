@@ -45,18 +45,93 @@ Entry delete - IIR with N Indicator
 
 INSERT OVERWRITE table bde_stats.DATA_EXTRCN_RULE VALUES('EWS-Drive-Ingest-Inc-daily','gcars',1,'sqoop-dflt',8,'EWS_Drive_Ingest_Inc_daily.ini','/projects/ews/scripts/spark/search/conf','/etc/security/keytabs/x987731.keytab','x987731@NMCORP.NISSAN.BIZ','N','drive_sqoop','2019-12-04 00:00:00','drive_sqoop','2019-12-04 00:00:00'), ('EWS-IIR-Ingest-Inc-daily','iir',1,'sqoop-dflt',9,'EWS_IIR_Ingest_Inc_daily.ini','/projects/ews/scripts/spark/search/conf','','/etc/security/keytabs/x987731.keytab x987731@NMCORP.NISSAN.BIZ','N','drive_sqoop','2020-06-01','drive_sqoop','2020-06-01');
 
-Claims
-CA
-IR
-AVES
-Techline
-Inspect
-Vehicle
-PFP
-MQR
-EQUIP Ingest & Monitoring
-QCS
-Gears
+# Claims
+# CA
+# IR
+# AVES
+# Techline
+# Inspect
+# Vehicle
+# PFP
+# MQR
+# EQUIP Ingest & Monitoring
+# QCS
+# Gears
 
-ResumeEquip Master Deployment Log		https://confluence.na.nissan.biz/pages/viewpage.action?spaceKey=TCSFQI&title=EQUIP+Master+Deployment+Log
-https://text-compare.com/
+# ResumeEquip Master Deployment Log		https://confluence.na.nissan.biz/pages/viewpage.action?spaceKey=TCSFQI&title=EQUIP+Master+Deployment+Log
+# https://text-compare.com/
+
+
+set PATH="C:\Program Files (x86)\Java\jdk1.8.0_152\bin";%PATH%;"D:\Sivakumar\TechM-Nissan\Daily Health Checkup\Zeppelin_Notebooks\apache-maven-3.6.3\bin"
+
+# mvn install:install-file -Dfile="D:\Sivakumar\TechM-Nissan\Daily Health Checkup\Zeppelin_Notebooks\apache-maven-3.6.3\lib\commons-io-2.5.jar" -DpomFile="D:\Sivakumar\TechM-Nissan\Daily Health Checkup\Zeppelin_Notebooks\Json2Flat-master\json2flat\pom.xml"
+
+CNSMR_AFR_BASE
+CNSMR_AFR_CMNT_BASE
+CNSMR_AFR_TRD_CNCRN_BASE
+/projects/equip/scripts/spark/ca_ingest.py
+/projects/common/*
+/projects/common/spark2_submit.sh
+
+prts_dtl_mrkt_rply_pblc
+
+
+# *****************************************************************************************
+
+# EQUIP properties files location
+http://svn.na.nissan.biz/svn/NNA/NNA_TCS_FQI_RCode/branches/EQUIP/equip_reporting/Prd/properties/claims.properties
+http://svn.na.nissan.biz/svn/NNA/NNA_TCS_FQI_RCode/branches/EQUIP/equip_reporting/Prd/properties/consumeraffairs.properties
+http://svn.na.nissan.biz/svn/NNA/NNA_TCS_FQI_RCode/branches/EQUIP/equip_reporting/Prd/properties/equip.properties
+http://svn.na.nissan.biz/svn/NNA/NNA_TCS_FQI_RCode/branches/EQUIP/equip_reporting/Prd/properties/gear2.properties
+http://svn.na.nissan.biz/svn/NNA/NNA_TCS_FQI_RCode/branches/EQUIP/equip_reporting/Prd/properties/gears2.0-rawTables.properties
+http://svn.na.nissan.biz/svn/NNA/NNA_TCS_FQI_RCode/branches/EQUIP/equip_reporting/Prd/properties/gears3-0.properties
+http://svn.na.nissan.biz/svn/NNA/NNA_TCS_FQI_RCode/branches/EQUIP/equip_reporting/Prd/properties/incident_rate.properties
+http://svn.na.nissan.biz/svn/NNA/NNA_TCS_FQI_RCode/branches/EQUIP/equip_reporting/Prd/properties/monitor.properties
+http://svn.na.nissan.biz/svn/NNA/NNA_TCS_FQI_RCode/branches/EQUIP/equip_reporting/Prd/properties/qcs.properties
+http://svn.na.nissan.biz/svn/NNA/NNA_TCS_FQI_RCode/branches/EQUIP/equip_reporting/Prd/properties/solr_monitor.properties
+http://svn.na.nissan.biz/svn/NNA/NNA_TCS_FQI_RCode/branches/EQUIP/equip_reporting/Prd/properties/techline.properties
+
+# EQUIP Worklow/coordinator location
+/projects/equip/oozie/Claims-Condense-Weekly/*
+/projects/equip/oozie/Claims-Ingest-Daily/*
+/projects/equip/oozie/ConsumerAffairs-Condense-Weekly/*
+/projects/equip/oozie/ConsumerAffairs-Ingest-Daily/*
+/projects/equip/oozie/EQUIP-AVES-Condense-Weekly/*
+/projects/equip/oozie/EQUIP-AVES-Ingest-Daily/*
+/projects/equip/oozie/EQUIP-Claims-Condense-Daily/*
+/projects/equip/oozie/EQUIP-Claims-Condense-Weekly/*
+/projects/equip/oozie/EQUIP-Claims-Solr-Daily/*
+/projects/equip/oozie/EQUIP-ConsumerAffairs-Condense-Weekly/*
+/projects/equip/oozie/EQUIP-ConsumerAffairs-Solr-Daily/*
+/projects/equip/oozie/EQUIP-GEARS2.0-create-raw-tables-daily/*
+/projects/equip/oozie/EQUIP-GEARS3.0-adoc/*
+/projects/equip/oozie/EQUIP-Gear2-Monthly/*
+/projects/equip/oozie/EQUIP-INSPECT-Condense-Weekly/*
+/projects/equip/oozie/EQUIP-INSPECT-Ingest-Daily/*
+/projects/equip/oozie/EQUIP-Monitor-Daily/*
+/projects/equip/oozie/EQUIP-SOLR-Monitor-Daily/*
+/projects/equip/oozie/EQUIP-Techline-Condense-Weekly/*
+/projects/equip/oozie/EQUIP-Techline-Solr-Daily/*
+/projects/equip/oozie/Equip-Warranty-Claims-Ingestion-Daily/*
+/projects/equip/oozie/QCS-Survey-Daily/*
+/projects/equip/oozie/QCS-Survey-Ingest-Fullload-Daily/*
+/projects/equip/oozie/Techline-Condense-Weekly/*
+/projects/equip/oozie/Techline-Ingest-Daily/*
+/projects/equip/oozie/claims.xml
+/projects/equip/oozie/claims_extracts/*
+/projects/equip/oozie/claims_onetime/*
+/projects/equip/oozie/claims_solr_incremental/*
+/projects/equip/oozie/consumeraffairs.xml
+/projects/equip/oozie/equip.xml
+/projects/equip/oozie/incident_rate_daily/*
+/projects/equip/oozie/ingestion/*
+/projects/equip/oozie/pfp/*
+/projects/equip/oozie/qcs.xml
+/projects/equip/oozie/techline.xml
+/projects/equip/oozie/vehicle_onetime/*
+/projects/equip/oozie/vehicle_solr_incremental/*
+
+
+# EWS properties file loacation
+http://svn.na.nissan.biz/svn/NNA/NNA_TCS_EWS_BDE/trunk/prd/oozie/ews.properties
+http://svn.na.nissan.biz/svn/NNA/NNA_TCS_EWS_BDE/trunk/prd/oozie/ro-cleansing.properties

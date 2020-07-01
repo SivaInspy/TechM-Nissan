@@ -1,0 +1,1045 @@
+{
+  "paragraphs": [{
+    "title": "dbsro.repair_order_history",
+    "text": "%jdbc(hive)\nSELECT DATE(updt_ts) as day, count(*) as recordscount FROM dbsro.repair_order_history \ngroup by DATE(updt_ts) order by day desc limit 1;\n",
+    "user": "x135756",
+    "dateUpdated": "2020-06-30T06:13:16-0600",
+    "config": {
+      "colWidth": 11,
+      "enabled": true,
+      "results": {
+        "0": {
+          "graph": {
+            "mode": "table",
+            "height": 86,
+            "optionOpen": false
+          },
+          "helium": {}
+        },
+        "1": {
+          "graph": {
+            "mode": "table",
+            "height": 85.9943,
+            "optionOpen": false
+          }
+        }
+      },
+      "editorSetting": {
+        "editOnDblClick": false,
+        "language": "sql"
+      },
+      "editorMode": "ace/mode/sql",
+      "tableHide": false,
+      "editorHide": true,
+      "title": true
+    },
+    "settings": {
+      "params": {},
+      "forms": {}
+    },
+    "results": {
+      "code": "SUCCESS",
+      "msg": [{
+        "type": "TABLE",
+        "data": "day\trecordscount\n2020-06-29\t105312\n"
+      }]
+    },
+    "apps": [],
+    "jobName": "paragraph_1540907158855_-311490439",
+    "id": "20181030-074558_1351893787",
+    "dateCreated": "2018-10-30T07:45:58-0600",
+    "dateStarted": "2020-06-30T05:40:20-0600",
+    "dateFinished": "2020-06-30T05:42:01-0600",
+    "status": "FINISHED",
+    "progressUpdateIntervalMs": 500,
+    "focus": true,
+    "$$hashKey": "object:106"
+  }, {
+    "title": "dbsro.repair_order_line_history",
+    "text": "%jdbc(hive)\nSELECT DATE(updt_ts) as day, count(*) as recordscount FROM dbsro.repair_order_line_history\ngroup by DATE(updt_ts) order by day desc limit 1;\n",
+    "user": "x135756",
+    "dateUpdated": "2020-06-30T05:40:20-0600",
+    "config": {
+      "colWidth": 11,
+      "enabled": true,
+      "results": {
+        "0": {
+          "graph": {
+            "mode": "table",
+            "height": 84,
+            "optionOpen": false
+          }
+        }
+      },
+      "editorSetting": {
+        "editOnDblClick": false,
+        "language": "sql"
+      },
+      "editorMode": "ace/mode/sql",
+      "title": true,
+      "editorHide": true
+    },
+    "settings": {
+      "params": {},
+      "forms": {}
+    },
+    "results": {
+      "code": "SUCCESS",
+      "msg": [{
+        "type": "TABLE",
+        "data": "day\trecordscount\n2020-06-29\t376117\n"
+      }]
+    },
+    "apps": [],
+    "jobName": "paragraph_1582614205256_1110205340",
+    "id": "20200225-000325_536509319",
+    "dateCreated": "2020-02-25T00:03:25-0700",
+    "dateStarted": "2020-06-30T05:40:20-0600",
+    "dateFinished": "2020-06-30T05:42:35-0600",
+    "status": "FINISHED",
+    "progressUpdateIntervalMs": 500,
+    "$$hashKey": "object:107"
+  }, {
+    "title": "equip.pfp_engnr",
+    "text": "%jdbc(hive)\nSELECT DATE(updt_ts) as day, count(*) as recordscount FROM equip.pfp_engnr\ngroup by DATE(updt_ts) order by day desc limit 1;",
+    "user": "x135756",
+    "dateUpdated": "2020-06-30T05:40:20-0600",
+    "config": {
+      "colWidth": 11,
+      "enabled": true,
+      "results": {
+        "0": {
+          "graph": {
+            "mode": "table",
+            "height": 88,
+            "optionOpen": false
+          }
+        }
+      },
+      "editorSetting": {
+        "editOnDblClick": false,
+        "language": "sql"
+      },
+      "editorMode": "ace/mode/sql",
+      "title": true,
+      "editorHide": true
+    },
+    "settings": {
+      "params": {},
+      "forms": {}
+    },
+    "results": {
+      "code": "SUCCESS",
+      "msg": [{
+        "type": "TABLE",
+        "data": "day\trecordscount\n2020-06-29\t8324\n"
+      }]
+    },
+    "apps": [],
+    "jobName": "paragraph_1541063994836_1148187637",
+    "id": "20181101-031954_408372205",
+    "dateCreated": "2018-11-01T03:19:54-0600",
+    "dateStarted": "2020-06-30T05:40:20-0600",
+    "dateFinished": "2020-06-30T05:41:15-0600",
+    "status": "FINISHED",
+    "progressUpdateIntervalMs": 500,
+    "$$hashKey": "object:108"
+  }, {
+    "title": "equip.cmpnt_grp",
+    "text": "%jdbc(hive)\nSELECT DATE(updt_ts) as day, count(*) as recordscount FROM equip.cmpnt_grp\ngroup by DATE(updt_ts) order by day desc limit 1;",
+    "user": "x135756",
+    "dateUpdated": "2020-06-30T05:40:20-0600",
+    "config": {
+      "colWidth": 11,
+      "enabled": true,
+      "results": {
+        "0": {
+          "graph": {
+            "mode": "table",
+            "height": 84,
+            "optionOpen": false
+          }
+        }
+      },
+      "editorSetting": {
+        "editOnDblClick": false,
+        "language": "sql"
+      },
+      "editorMode": "ace/mode/sql",
+      "title": true,
+      "editorHide": true
+    },
+    "settings": {
+      "params": {},
+      "forms": {}
+    },
+    "results": {
+      "code": "SUCCESS",
+      "msg": [{
+        "type": "TABLE",
+        "data": "day\trecordscount\n2020-06-29\t35\n"
+      }]
+    },
+    "apps": [],
+    "jobName": "paragraph_1542702776974_1881315050",
+    "id": "20181120-013256_40279586",
+    "dateCreated": "2018-11-20T01:32:56-0700",
+    "dateStarted": "2020-06-30T05:40:20-0600",
+    "dateFinished": "2020-06-30T05:41:14-0600",
+    "status": "FINISHED",
+    "progressUpdateIntervalMs": 500,
+    "$$hashKey": "object:109"
+  }, {
+    "title": "equip.cstmr_stsfcn_team",
+    "text": "%jdbc(hive)\nSELECT DATE(updt_ts) as day, count(*) as recordscount FROM equip.cstmr_stsfcn_team\ngroup by DATE(updt_ts) order by day desc limit 1;",
+    "user": "x135756",
+    "dateUpdated": "2020-06-30T05:40:20-0600",
+    "config": {
+      "colWidth": 11,
+      "enabled": true,
+      "results": {
+        "0": {
+          "graph": {
+            "mode": "table",
+            "height": 88,
+            "optionOpen": false
+          }
+        }
+      },
+      "editorSetting": {
+        "editOnDblClick": false,
+        "language": "sql"
+      },
+      "editorMode": "ace/mode/sql",
+      "title": true,
+      "editorHide": true
+    },
+    "settings": {
+      "params": {},
+      "forms": {}
+    },
+    "results": {
+      "code": "SUCCESS",
+      "msg": [{
+        "type": "TABLE",
+        "data": "day\trecordscount\n2020-06-29\t50\n"
+      }]
+    },
+    "apps": [],
+    "jobName": "paragraph_1542702855528_-433426278",
+    "id": "20181120-013415_69338938",
+    "dateCreated": "2018-11-20T01:34:15-0700",
+    "dateStarted": "2020-06-30T05:40:20-0600",
+    "dateFinished": "2020-06-30T05:41:15-0600",
+    "status": "FINISHED",
+    "progressUpdateIntervalMs": 500,
+    "$$hashKey": "object:110"
+  }, {
+    "title": "equip.fld_engrng_stf",
+    "text": "%jdbc(hive)\nSELECT DATE(updt_ts) as day, count(*) as recordscount FROM equip.fld_engrng_stf\ngroup by DATE(updt_ts) order by day desc limit 1;",
+    "user": "x135756",
+    "dateUpdated": "2020-06-30T05:40:20-0600",
+    "config": {
+      "colWidth": 11,
+      "enabled": true,
+      "results": {
+        "0": {
+          "graph": {
+            "mode": "table",
+            "height": 84,
+            "optionOpen": false
+          }
+        }
+      },
+      "editorSetting": {
+        "editOnDblClick": false,
+        "language": "sql"
+      },
+      "editorMode": "ace/mode/sql",
+      "title": true,
+      "editorHide": true
+    },
+    "settings": {
+      "params": {},
+      "forms": {}
+    },
+    "results": {
+      "code": "SUCCESS",
+      "msg": [{
+        "type": "TABLE",
+        "data": "day\trecordscount\n2020-06-29\t10\n"
+      }]
+    },
+    "apps": [],
+    "jobName": "paragraph_1542702855334_-455741715",
+    "id": "20181120-013415_1577315394",
+    "dateCreated": "2018-11-20T01:34:15-0700",
+    "dateStarted": "2020-06-30T05:40:21-0600",
+    "dateFinished": "2020-06-30T05:41:15-0600",
+    "status": "FINISHED",
+    "progressUpdateIntervalMs": 500,
+    "$$hashKey": "object:111"
+  }, {
+    "title": "equip.fld_qlty_role",
+    "text": "%jdbc(hive)\nSELECT DATE(updt_ts) as day, count(*) as recordscount FROM equip.fld_qlty_role\ngroup by DATE(updt_ts) order by day desc limit 1;",
+    "user": "x135756",
+    "dateUpdated": "2020-06-30T05:40:20-0600",
+    "config": {
+      "colWidth": 11,
+      "enabled": true,
+      "results": {
+        "0": {
+          "graph": {
+            "mode": "table",
+            "height": 84,
+            "optionOpen": false
+          }
+        }
+      },
+      "editorSetting": {
+        "editOnDblClick": false,
+        "language": "sql"
+      },
+      "editorMode": "ace/mode/sql",
+      "editorHide": true,
+      "title": true
+    },
+    "settings": {
+      "params": {},
+      "forms": {}
+    },
+    "results": {
+      "code": "SUCCESS",
+      "msg": [{
+        "type": "TABLE",
+        "data": "day\trecordscount\n2020-06-29\t6\n"
+      }]
+    },
+    "apps": [],
+    "jobName": "paragraph_1542702871504_2120567569",
+    "id": "20181120-013431_88949401",
+    "dateCreated": "2018-11-20T01:34:31-0700",
+    "dateStarted": "2020-06-30T05:40:21-0600",
+    "dateFinished": "2020-06-30T05:41:13-0600",
+    "status": "FINISHED",
+    "progressUpdateIntervalMs": 500,
+    "$$hashKey": "object:112"
+  }, {
+    "title": "equip.fqi_grp",
+    "text": "%jdbc(hive)\nSELECT DATE(updt_ts) as day, count(*) as recordscount FROM equip.fqi_grp\ngroup by DATE(updt_ts) order by day desc limit 1;",
+    "user": "x135756",
+    "dateUpdated": "2020-06-30T05:40:20-0600",
+    "config": {
+      "colWidth": 11,
+      "enabled": true,
+      "results": {
+        "0": {
+          "graph": {
+            "mode": "table",
+            "height": 84,
+            "optionOpen": false
+          }
+        }
+      },
+      "editorSetting": {
+        "editOnDblClick": false,
+        "language": "sql"
+      },
+      "editorMode": "ace/mode/sql",
+      "title": true,
+      "editorHide": true
+    },
+    "settings": {
+      "params": {},
+      "forms": {}
+    },
+    "results": {
+      "code": "SUCCESS",
+      "msg": [{
+        "type": "TABLE",
+        "data": "day\trecordscount\n2020-06-29\t29\n"
+      }]
+    },
+    "apps": [],
+    "jobName": "paragraph_1542702871326_2092096150",
+    "id": "20181120-013431_403222669",
+    "dateCreated": "2018-11-20T01:34:31-0700",
+    "dateStarted": "2020-06-30T05:40:21-0600",
+    "dateFinished": "2020-06-30T05:41:15-0600",
+    "status": "FINISHED",
+    "progressUpdateIntervalMs": 500,
+    "$$hashKey": "object:113"
+  }, {
+    "title": "equip.fqi_pfp",
+    "text": "%jdbc(hive)\nSELECT DATE(updt_ts) as day, count(*) as recordscount FROM equip.fqi_pfp\ngroup by DATE(updt_ts) order by day desc limit 1;",
+    "user": "x135756",
+    "dateUpdated": "2020-06-30T05:40:20-0600",
+    "config": {
+      "colWidth": 11,
+      "enabled": true,
+      "results": {
+        "0": {
+          "graph": {
+            "mode": "table",
+            "height": 84,
+            "optionOpen": false
+          }
+        }
+      },
+      "editorSetting": {
+        "editOnDblClick": false,
+        "language": "sql"
+      },
+      "editorMode": "ace/mode/sql",
+      "title": true,
+      "editorHide": true
+    },
+    "settings": {
+      "params": {},
+      "forms": {}
+    },
+    "results": {
+      "code": "SUCCESS",
+      "msg": [{
+        "type": "TABLE",
+        "data": "day\trecordscount\n2020-06-29\t13970\n"
+      }]
+    },
+    "apps": [],
+    "jobName": "paragraph_1542702992215_-970704309",
+    "id": "20181120-013632_545612389",
+    "dateCreated": "2018-11-20T01:36:32-0700",
+    "dateStarted": "2020-06-30T05:40:21-0600",
+    "dateFinished": "2020-06-30T05:41:12-0600",
+    "status": "FINISHED",
+    "progressUpdateIntervalMs": 500,
+    "$$hashKey": "object:114"
+  }, {
+    "title": "equip.fqi_rpsntv",
+    "text": "%jdbc(hive)\nSELECT DATE(updt_ts) as day, count(*) as recordscount FROM equip.fqi_rpsntv\ngroup by DATE(updt_ts) order by day desc limit 1;",
+    "user": "x135756",
+    "dateUpdated": "2020-06-30T05:40:20-0600",
+    "config": {
+      "colWidth": 11,
+      "enabled": true,
+      "results": {
+        "0": {
+          "graph": {
+            "mode": "table",
+            "height": 92,
+            "optionOpen": false
+          }
+        }
+      },
+      "editorSetting": {
+        "editOnDblClick": false,
+        "language": "sql"
+      },
+      "editorMode": "ace/mode/sql",
+      "title": true,
+      "editorHide": true
+    },
+    "settings": {
+      "params": {},
+      "forms": {}
+    },
+    "results": {
+      "code": "SUCCESS",
+      "msg": [{
+        "type": "TABLE",
+        "data": "day\trecordscount\n2020-06-29\t1260\n"
+      }]
+    },
+    "apps": [],
+    "jobName": "paragraph_1542702992794_-1094978204",
+    "id": "20181120-013632_169269570",
+    "dateCreated": "2018-11-20T01:36:32-0700",
+    "dateStarted": "2020-06-30T05:40:21-0600",
+    "dateFinished": "2020-06-30T05:41:12-0600",
+    "status": "FINISHED",
+    "progressUpdateIntervalMs": 500,
+    "$$hashKey": "object:115"
+  }, {
+    "title": "equip.cstmr_stsfcn_team_mbr",
+    "text": "%jdbc(hive)\nSELECT DATE(updt_ts) as day, count(*) as recordscount FROM equip.cstmr_stsfcn_team_mbr\ngroup by DATE(updt_ts) order by day desc limit 1;",
+    "user": "x135756",
+    "dateUpdated": "2020-06-30T05:40:20-0600",
+    "config": {
+      "colWidth": 11,
+      "enabled": true,
+      "results": {
+        "0": {
+          "graph": {
+            "mode": "table",
+            "height": 84,
+            "optionOpen": false
+          }
+        }
+      },
+      "editorSetting": {
+        "editOnDblClick": false,
+        "language": "sql"
+      },
+      "editorMode": "ace/mode/sql",
+      "title": true,
+      "editorHide": true
+    },
+    "settings": {
+      "params": {},
+      "forms": {}
+    },
+    "results": {
+      "code": "SUCCESS",
+      "msg": [{
+        "type": "TABLE",
+        "data": "day\trecordscount\n2020-06-29\t54\n"
+      }]
+    },
+    "apps": [],
+    "jobName": "paragraph_1542702992030_-998021481",
+    "id": "20181120-013632_1646213166",
+    "dateCreated": "2018-11-20T01:36:32-0700",
+    "dateStarted": "2020-06-30T05:41:12-0600",
+    "dateFinished": "2020-06-30T05:41:15-0600",
+    "status": "FINISHED",
+    "progressUpdateIntervalMs": 500,
+    "$$hashKey": "object:116"
+  }, {
+    "title": "equip.pfp_rspsbl_engnr",
+    "text": "%jdbc(hive)\nSELECT DATE(updt_ts) as day, count(*) as recordscount FROM equip.pfp_rspsbl_engnr\ngroup by DATE(updt_ts) order by day desc limit 1;",
+    "user": "x135756",
+    "dateUpdated": "2020-06-30T05:40:20-0600",
+    "config": {
+      "colWidth": 11,
+      "enabled": true,
+      "results": {
+        "0": {
+          "graph": {
+            "mode": "table",
+            "height": 92,
+            "optionOpen": false
+          }
+        }
+      },
+      "editorSetting": {
+        "editOnDblClick": false,
+        "language": "sql"
+      },
+      "editorMode": "ace/mode/sql",
+      "editorHide": true,
+      "title": true
+    },
+    "settings": {
+      "params": {},
+      "forms": {}
+    },
+    "results": {
+      "code": "SUCCESS",
+      "msg": [{
+        "type": "TABLE",
+        "data": "day\trecordscount\n2020-06-29\t447008\n"
+      }]
+    },
+    "apps": [],
+    "jobName": "paragraph_1542703004585_1801426841",
+    "id": "20181120-013644_597313315",
+    "dateCreated": "2018-11-20T01:36:44-0700",
+    "dateStarted": "2020-06-30T05:41:12-0600",
+    "dateFinished": "2020-06-30T05:41:17-0600",
+    "status": "FINISHED",
+    "progressUpdateIntervalMs": 500,
+    "$$hashKey": "object:117"
+  }, {
+    "title": "equip.fqi_base_mdl",
+    "text": "%jdbc(hive)\nSELECT DATE(updt_ts) as day, count(*) as recordscount FROM equip.fqi_base_mdl\ngroup by DATE(updt_ts) order by day desc limit 1;",
+    "user": "x135756",
+    "dateUpdated": "2020-06-30T05:40:21-0600",
+    "config": {
+      "colWidth": 11,
+      "enabled": true,
+      "results": {
+        "0": {
+          "graph": {
+            "mode": "table",
+            "height": 84,
+            "optionOpen": false
+          }
+        }
+      },
+      "editorSetting": {
+        "editOnDblClick": false,
+        "language": "sql"
+      },
+      "editorMode": "ace/mode/sql",
+      "title": true,
+      "editorHide": true
+    },
+    "settings": {
+      "params": {},
+      "forms": {}
+    },
+    "results": {
+      "code": "SUCCESS",
+      "msg": [{
+        "type": "TABLE",
+        "data": "day\trecordscount\n2020-06-29\t44\n"
+      }]
+    },
+    "apps": [],
+    "jobName": "paragraph_1542703004849_1515173659",
+    "id": "20181120-013644_1505150638",
+    "dateCreated": "2018-11-20T01:36:44-0700",
+    "dateStarted": "2020-06-30T05:41:13-0600",
+    "dateFinished": "2020-06-30T05:41:18-0600",
+    "status": "FINISHED",
+    "progressUpdateIntervalMs": 500,
+    "$$hashKey": "object:118"
+  }, {
+    "title": "equip.fqi_crnt_mdl",
+    "text": "%jdbc(hive)\nSELECT DATE(updt_ts) as day, count(*) as recordscount FROM equip.fqi_crnt_mdl\ngroup by DATE(updt_ts) order by day desc limit 1;",
+    "user": "x135756",
+    "dateUpdated": "2020-06-30T05:40:21-0600",
+    "config": {
+      "colWidth": 11,
+      "enabled": true,
+      "results": {
+        "0": {
+          "graph": {
+            "mode": "table",
+            "height": 84,
+            "optionOpen": false
+          }
+        }
+      },
+      "editorSetting": {
+        "editOnDblClick": false,
+        "language": "sql"
+      },
+      "editorMode": "ace/mode/sql",
+      "title": true,
+      "editorHide": true
+    },
+    "settings": {
+      "params": {},
+      "forms": {}
+    },
+    "results": {
+      "code": "SUCCESS",
+      "msg": [{
+        "type": "TABLE",
+        "data": "day\trecordscount\n2020-06-29\t80\n"
+      }]
+    },
+    "apps": [],
+    "jobName": "paragraph_1542703004399_1677537695",
+    "id": "20181120-013644_1967352652",
+    "dateCreated": "2018-11-20T01:36:44-0700",
+    "dateStarted": "2020-06-30T05:41:14-0600",
+    "dateFinished": "2020-06-30T05:41:18-0600",
+    "status": "FINISHED",
+    "progressUpdateIntervalMs": 500,
+    "$$hashKey": "object:119"
+  }, {
+    "title": "equip.ir_cmbnd_vhcl_clm_lmtd_flds_cmltv",
+    "text": "%jdbc(hive)\nSELECT DATE(updt_ts) as day, count(*) as recordscount FROM equip.ir_cmbnd_vhcl_clm_lmtd_flds_cmltv\ngroup by DATE(updt_ts) order by day desc limit 1;",
+    "user": "x135756",
+    "dateUpdated": "2020-06-30T05:40:21-0600",
+    "config": {
+      "colWidth": 11,
+      "enabled": true,
+      "results": {
+        "0": {
+          "graph": {
+            "mode": "table",
+            "height": 84,
+            "optionOpen": false
+          }
+        }
+      },
+      "editorSetting": {
+        "editOnDblClick": false,
+        "language": "sql"
+      },
+      "editorMode": "ace/mode/sql",
+      "title": true,
+      "editorHide": true
+    },
+    "settings": {
+      "params": {},
+      "forms": {}
+    },
+    "results": {
+      "code": "SUCCESS",
+      "msg": [{
+        "type": "TABLE",
+        "data": "day\trecordscount\n2020-06-30\t216985994\n"
+      }]
+    },
+    "apps": [],
+    "jobName": "paragraph_1542703193504_-1055674164",
+    "id": "20181120-013953_1824423920",
+    "dateCreated": "2018-11-20T01:39:53-0700",
+    "dateStarted": "2020-06-30T05:41:15-0600",
+    "dateFinished": "2020-06-30T05:43:01-0600",
+    "status": "FINISHED",
+    "progressUpdateIntervalMs": 500,
+    "$$hashKey": "object:120"
+  }, {
+    "title": "equip.ir_cmbnd_vhcl_clm_lmtd_flds_dflt_fltrs_cmltv",
+    "text": "%jdbc(hive)\nSELECT DATE(updt_ts) as day, count(*) as recordscount FROM equip.ir_cmbnd_vhcl_clm_lmtd_flds_dflt_fltrs_cmltv\ngroup by DATE(updt_ts) order by day desc limit 1;",
+    "user": "x135756",
+    "dateUpdated": "2020-06-30T05:40:21-0600",
+    "config": {
+      "colWidth": 11,
+      "enabled": true,
+      "results": {
+        "0": {
+          "graph": {
+            "mode": "table",
+            "height": 84,
+            "optionOpen": false
+          }
+        }
+      },
+      "editorSetting": {
+        "editOnDblClick": false,
+        "language": "sql"
+      },
+      "editorMode": "ace/mode/sql",
+      "title": true,
+      "editorHide": true
+    },
+    "settings": {
+      "params": {},
+      "forms": {}
+    },
+    "results": {
+      "code": "SUCCESS",
+      "msg": [{
+        "type": "TABLE",
+        "data": "day\trecordscount\n2020-06-30\t139721852\n"
+      }]
+    },
+    "apps": [],
+    "jobName": "paragraph_1548777905177_412602030",
+    "id": "20190129-090505_864697231",
+    "dateCreated": "2019-01-29T09:05:05-0700",
+    "dateStarted": "2020-06-30T05:41:15-0600",
+    "dateFinished": "2020-06-30T05:43:02-0600",
+    "status": "FINISHED",
+    "progressUpdateIntervalMs": 500,
+    "$$hashKey": "object:121"
+  }, {
+    "title": "equip.ir_cmbnd_vhcl_clm_lmtd_flds_dflt_fltrs_vms_cms",
+    "text": "%jdbc(hive)\nSELECT DATE(updt_ts) as day, count(*) as recordscount FROM equip.ir_cmbnd_vhcl_clm_lmtd_flds_dflt_fltrs_vms_cms\ngroup by DATE(updt_ts) order by day desc limit 1;",
+    "user": "x135756",
+    "dateUpdated": "2020-06-30T05:40:21-0600",
+    "config": {
+      "colWidth": 11,
+      "enabled": true,
+      "results": {
+        "0": {
+          "graph": {
+            "mode": "table",
+            "height": 84,
+            "optionOpen": false
+          }
+        }
+      },
+      "editorSetting": {
+        "editOnDblClick": false,
+        "language": "sql"
+      },
+      "editorMode": "ace/mode/sql",
+      "title": true,
+      "editorHide": true
+    },
+    "settings": {
+      "params": {},
+      "forms": {}
+    },
+    "results": {
+      "code": "SUCCESS",
+      "msg": [{
+        "type": "TABLE",
+        "data": "day\trecordscount\n2020-06-30\t7723855\n"
+      }]
+    },
+    "apps": [],
+    "jobName": "paragraph_1548777917449_1116723166",
+    "id": "20190129-090517_1053878720",
+    "dateCreated": "2019-01-29T09:05:17-0700",
+    "dateStarted": "2020-06-30T05:41:16-0600",
+    "dateFinished": "2020-06-30T05:42:24-0600",
+    "status": "FINISHED",
+    "progressUpdateIntervalMs": 500,
+    "$$hashKey": "object:122"
+  }, {
+    "title": "equip.ir_cmbnd_vhcl_clm_lmtd_flds_vms_cms",
+    "text": "%jdbc(hive)\nSELECT DATE(updt_ts) as day, count(*) as recordscount FROM equip.ir_cmbnd_vhcl_clm_lmtd_flds_vms_cms\ngroup by DATE(updt_ts) order by day desc limit 1;",
+    "user": "x135756",
+    "dateUpdated": "2020-06-30T05:40:21-0600",
+    "config": {
+      "colWidth": 11,
+      "enabled": true,
+      "results": {
+        "0": {
+          "graph": {
+            "mode": "table",
+            "height": 84,
+            "optionOpen": false
+          }
+        }
+      },
+      "editorSetting": {
+        "editOnDblClick": false,
+        "language": "sql"
+      },
+      "editorMode": "ace/mode/sql",
+      "title": true,
+      "editorHide": true
+    },
+    "settings": {
+      "params": {},
+      "forms": {}
+    },
+    "results": {
+      "code": "SUCCESS",
+      "msg": [{
+        "type": "TABLE",
+        "data": "day\trecordscount\n2020-06-30\t21421572\n"
+      }]
+    },
+    "apps": [],
+    "jobName": "paragraph_1548777911618_839688633",
+    "id": "20190129-090511_291929428",
+    "dateCreated": "2019-01-29T09:05:11-0700",
+    "dateStarted": "2020-06-30T05:41:16-0600",
+    "dateFinished": "2020-06-30T05:42:37-0600",
+    "status": "FINISHED",
+    "progressUpdateIntervalMs": 500,
+    "$$hashKey": "object:123"
+  }, {
+    "title": "equip.ir_cmbnd_vhcl_clm_lmtd_flds_dflt_fltrs",
+    "text": "%jdbc(hive)\nSELECT DATE(updt_ts) as day, count(*) as recordscount FROM equip.ir_cmbnd_vhcl_clm_lmtd_flds_dflt_fltrs\ngroup by DATE(updt_ts) order by day desc limit 1;",
+    "user": "x135756",
+    "dateUpdated": "2020-06-30T05:40:21-0600",
+    "config": {
+      "colWidth": 11,
+      "enabled": true,
+      "results": {
+        "0": {
+          "graph": {
+            "mode": "table",
+            "height": 84,
+            "optionOpen": false
+          }
+        }
+      },
+      "editorSetting": {
+        "editOnDblClick": false,
+        "language": "sql"
+      },
+      "editorMode": "ace/mode/sql",
+      "title": true,
+      "editorHide": true
+    },
+    "settings": {
+      "params": {},
+      "forms": {}
+    },
+    "results": {
+      "code": "SUCCESS",
+      "msg": [{
+        "type": "TABLE",
+        "data": "day\trecordscount\n2020-06-30\t7723855\n"
+      }]
+    },
+    "apps": [],
+    "jobName": "paragraph_1548777964354_-2093024014",
+    "id": "20190129-090604_1399724556",
+    "dateCreated": "2019-01-29T09:06:04-0700",
+    "dateStarted": "2020-06-30T05:41:17-0600",
+    "dateFinished": "2020-06-30T05:42:25-0600",
+    "status": "FINISHED",
+    "progressUpdateIntervalMs": 500,
+    "$$hashKey": "object:124"
+  }, {
+    "title": "equip.ir_cmbnd_vhcl_clm_lmtd_flds",
+    "text": "%jdbc(hive)\nSELECT DATE(updt_ts) as day, count(*) as recordscount FROM equip.ir_cmbnd_vhcl_clm_lmtd_flds\ngroup by DATE(updt_ts) order by day desc limit 1;",
+    "user": "x135756",
+    "dateUpdated": "2020-06-30T05:40:21-0600",
+    "config": {
+      "colWidth": 11,
+      "enabled": true,
+      "results": {
+        "0": {
+          "graph": {
+            "mode": "table",
+            "height": 84,
+            "optionOpen": false
+          }
+        }
+      },
+      "editorSetting": {
+        "editOnDblClick": false,
+        "language": "sql"
+      },
+      "editorMode": "ace/mode/sql",
+      "title": true,
+      "editorHide": true
+    },
+    "settings": {
+      "params": {},
+      "forms": {}
+    },
+    "results": {
+      "code": "SUCCESS",
+      "msg": [{
+        "type": "TABLE",
+        "data": "day\trecordscount\n2020-06-30\t21421572\n"
+      }]
+    },
+    "apps": [],
+    "jobName": "paragraph_1548777969818_446318727",
+    "id": "20190129-090609_641501339",
+    "dateCreated": "2019-01-29T09:06:09-0700",
+    "dateStarted": "2020-06-30T05:41:17-0600",
+    "dateFinished": "2020-06-30T05:42:24-0600",
+    "status": "FINISHED",
+    "progressUpdateIntervalMs": 500,
+    "$$hashKey": "object:125"
+  }, {
+    "title": "equip.aves_base",
+    "text": "%jdbc(hive)\nSELECT DATE(updt_ts) as day, count(*) as recordscount FROM equip.aves_base\ngroup by DATE(updt_ts) order by day desc limit 1;",
+    "user": "x135756",
+    "dateUpdated": "2020-06-30T05:40:21-0600",
+    "config": {
+      "colWidth": 11,
+      "enabled": true,
+      "results": {
+        "0": {
+          "graph": {
+            "mode": "table",
+            "height": 84,
+            "optionOpen": false
+          }
+        }
+      },
+      "editorSetting": {
+        "editOnDblClick": false,
+        "language": "sql"
+      },
+      "editorMode": "ace/mode/sql",
+      "title": true,
+      "editorHide": true
+    },
+    "settings": {
+      "params": {},
+      "forms": {}
+    },
+    "results": {
+      "code": "SUCCESS",
+      "msg": [{
+        "type": "TABLE",
+        "data": "day\trecordscount\n2020-06-30\t63\n"
+      }]
+    },
+    "apps": [],
+    "jobName": "paragraph_1548939711356_413051682",
+    "id": "20190131-060151_788490802",
+    "dateCreated": "2019-01-31T06:01:51-0700",
+    "dateStarted": "2020-06-30T05:41:18-0600",
+    "dateFinished": "2020-06-30T05:42:09-0600",
+    "status": "FINISHED",
+    "progressUpdateIntervalMs": 500,
+    "$$hashKey": "object:126"
+  }, {
+    "title": "equip.aves_vhcl_solr",
+    "text": "%jdbc(hive)\nSELECT DATE(updt_ts) as day, count(*) as recordscount FROM equip.aves_vhcl_solr\ngroup by DATE(updt_ts) order by day desc limit 1;",
+    "user": "x135756",
+    "dateUpdated": "2020-06-30T05:40:21-0600",
+    "config": {
+      "colWidth": 11,
+      "enabled": true,
+      "results": {
+        "0": {
+          "graph": {
+            "mode": "table",
+            "height": 84,
+            "optionOpen": false
+          }
+        }
+      },
+      "editorSetting": {
+        "editOnDblClick": false,
+        "language": "sql"
+      },
+      "editorMode": "ace/mode/sql",
+      "title": true,
+      "editorHide": true
+    },
+    "settings": {
+      "params": {},
+      "forms": {}
+    },
+    "results": {
+      "code": "SUCCESS",
+      "msg": [{
+        "type": "TABLE",
+        "data": "day\trecordscount\n2020-06-29\t6770\n"
+      }]
+    },
+    "apps": [],
+    "jobName": "paragraph_1561989955411_-1147058915",
+    "id": "20190701-080555_1503222784",
+    "dateCreated": "2019-07-01T08:05:55-0600",
+    "dateStarted": "2020-06-30T05:41:18-0600",
+    "dateFinished": "2020-06-30T05:42:14-0600",
+    "status": "FINISHED",
+    "progressUpdateIntervalMs": 500,
+    "$$hashKey": "object:127"
+  }, {
+    "user": "anonymous",
+    "dateUpdated": "2020-06-29T06:14:38-0600",
+    "config": {
+      "colWidth": 12,
+      "enabled": true,
+      "results": {},
+      "editorSetting": {
+        "editOnDblClick": false,
+        "language": "sql"
+      },
+      "editorMode": "ace/mode/sql"
+    },
+    "settings": {
+      "params": {},
+      "forms": {}
+    },
+    "apps": [],
+    "jobName": "paragraph_1561989998168_-1049256074",
+    "id": "20190701-080638_991310880",
+    "dateCreated": "2019-07-01T08:06:38-0600",
+    "status": "FINISHED",
+    "progressUpdateIntervalMs": 500,
+    "$$hashKey": "object:128"
+  }],
+  "name": "Dbsro, IR, Aves and PFP",
+  "id": "2DWQRHRAA",
+  "angularObjects": {
+    "2CHS8UYQQ:shared_process": [],
+    "2CKX6DGQZ:shared_process": [],
+    "2C8A4SZ9T_livy2:shared_process": [],
+    "2CK8A9MEG:anonymous:": [],
+    "2CKX8WPU1:shared_process": [],
+    "2C4U48MY3_spark2:shared_process": [],
+    "2CKAY1A8Y:shared_process": [],
+    "2CKEKWY8Z:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": true,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {}
+}

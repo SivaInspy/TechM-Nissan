@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES />
+        <JAVADOC>
+          <root url="file://$MODULE_DIR$/Daily Health Checkup/Zeppelin_Notebooks/Json2Flat-master/docs" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/Daily Health Checkup/Zeppelin_Notebooks/Json2Flat-master/json2flat/src/main/java" />
+          <root url="file://$MODULE_DIR$/Daily Health Checkup/Zeppelin_Notebooks/Json2Flat-master/json2flat/src/test/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+  </component>
+</module>

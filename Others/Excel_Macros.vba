@@ -27,3 +27,17 @@ Sub NoFill()
         .PatternTintAndShade = 0
     End With
 End Sub
+Sub LightsUpDateColumn()
+'
+' LightsUpDateColumn Macro
+'
+' Keyboard Shortcut: Ctrl+Shift+B
+'
+    Dim x As Long
+    For x = ActiveSheet.Range("C" & ActiveSheet.Rows.Count).End(xlUp).Row To 2 Step -1
+    If CDate(ActiveSheet.Range("C" & x).Value) < Date - 1 Then
+    ActiveSheet.Range("B" & x & ":" & "C" & x).Interior.Color = vbYellow
+    ActiveSheet.Range("B" & x & ":" & "C" & x).Font.Color = vbRed
+    End If
+    Next x
+End Sub
