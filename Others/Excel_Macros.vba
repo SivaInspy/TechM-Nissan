@@ -41,3 +41,25 @@ Sub LightsUpDateColumn()
     End If
     Next x
 End Sub
+Sub Merge_Same_Cells()
+'
+' Merge_Same_Cells Macro
+'
+' Keyboard Shortcut: Ctrl+Shift+M
+'
+Application.DisplayAlerts = False
+
+Dim rng As Range
+
+MergeCells:
+
+For Each rng In Selection
+
+If rng.Value = rng.Offset(1, 0).Value And rng.Value <> "" Then
+Range(rng, rng.Offset(1, 0)).Merge
+Range(rng, rng.Offset(1, 0)).HorizontalAlignment = xlCenter
+Range(rng, rng.Offset(1, 0)).VerticalAlignment = xlCenter
+GoTo MergeCells
+End If
+Next
+End Sub
