@@ -135,3 +135,64 @@ http://svn.na.nissan.biz/svn/NNA/NNA_TCS_FQI_RCode/branches/EQUIP/equip_reportin
 # EWS properties file loacation
 http://svn.na.nissan.biz/svn/NNA/NNA_TCS_EWS_BDE/trunk/prd/oozie/ews.properties
 http://svn.na.nissan.biz/svn/NNA/NNA_TCS_EWS_BDE/trunk/prd/oozie/ro-cleansing.properties
+
+
+
+'name=EQUIP-AVES-Condense-Weekly-BDE-STG-wf;name=EQUIP-AVES-Ingest-Daily-BDE-PRD-wf;name=ConsumerAffairs-Condense-Weekly-BDE-PRD-wf'
+
+
+
+DIH	PRD	http://10.78.11.31:18080/dih-console/login.jsp
+DIH Non	PRD	http://10.78.11.32:18080/dih-console/login.jsp
+Oozie	PRD	http://usnencpl075.nmcorp.nissan.biz:11000/oozie/
+Oozie	STG	http://usnencpl077.nmcorp.nissan.biz:11000/oozie/
+Oozie	DEV	http://usnencpl079.nmcorp.nissan.biz:11000/oozie/
+Ambari	PRD	http://usnencpl075.nmcorp.nissan.biz:8080/#/login
+Ambari	STG	http://usnencpl077.nmcorp.nissan.biz:8080/#/login
+Ambari	DEV	http://usnencpl079.nmcorp.nissan.biz:8080/#/login
+Zeppelin	PRD	http://usnencpl075.nmcorp.nissan.biz:9995/
+Zeppelin	STG	http://usnencpl077.nmcorp.nissan.biz:9995/
+Zeppelin	DEV	http://usnencpl079.nmcorp.nissan.biz:9995/
+Tableau	PRD	https://tableau.na.nissan.biz/#/site/TCS/datasources
+Solr	STG	http://usnencpl091.nmcorp.nissan.biz:8983/solr/#/
+EQUIP	PRD	https://datamgtanalytics.na.nissan.biz/
+EQUIP	STG	https://datamgtanalytics.stage.na.nissan.biz/
+Confluence		https://confluence.na.nissan.biz/
+Jira		https://jira.na.nissan.biz/
+Zoom		https://nissan-usa.zoom.us/j/8647358496
+ServiceNow		https://nnanissan.service-now.com/
+
+
+
+
+
+Claims-Ingest-Daily-BDE-PRD-wf, Skipped thrice, Now RUNNING
+ConsumerAffairs-Ingest-Daily-BDE-PRD-wf, Skipped thrice, Now SUCCEEDED
+DBSRO-data-alert-BDE-PRD-wf, Now SKIPPED for today
+dbsro-wf, SUUCEEDED up to 13:25 GMT, Now WAITING
+EQUIP-AVES-Ingest-Daily-BDE-PRD-wf,
+EQUIP-ConsumerAffairs-Solr-Daily-BDE-PRD-wf, Skipped thrice, Now SUCCEEDED
+EQUIP-incident-rate-daily-wf, Skipped once, Now SUCCEEDED
+EQUIP-INSPECT-Ingest-Daily-BDE-PRD-wf, Skipped twice, Now SUCCEEDED
+EQUIP-Monitor-Ingestion-Daily-BDE-PRD-wf, Skipped Now
+EQUIP-MQR-Source-Ingestion-Daily-wf, Skipped Now
+EQUIP-pfp-daily-ingest-wf, Skipped once, Now SUCCEEDED
+EQUIP-Techline-Solr-Daily-BDE-PRD-wf, Skipped thrice, Now running
+EWS-Drive-Common-Ingest-Daily-Prd-wf, Some hourly job killed, Now SUCCEEDED
+EWS-Drive-Ingest-Inc-daily-Prd-wf,
+EWS-DRIVE-tr-Solr-Indexing-Daily-Prd-wf,
+EWS-ML-Predict-Daily-Prd-wf,
+shell-wf, KILLED twice, Now SUCCEEDED
+Techline-Ingest-Daily-BDE-PRD-wf, Skipped twice, Now SECCEEDED
+
+
+
+EWS-CA-Solr-Indexing-Daily-Prd-wf
+EWS-FIR-Ingest-Incremental-Daily-Prd-wf
+EWS-NHTSA-IVSTGN-Ingest-Daily-Prd-wf
+EWS-NHTSA-RCL-Ingest-Daily-Prd-wf
+EWS-NHTSA-SVC-Ingest-Daily-Prd-wf
+EWS-PRJ-Ingest-Incremental-Daily-Prd-wf
+EWS-RCL-Ingest-Daily-Prd-wf
+EWS-RO-Cleansing-Daily-Prd-wf
+EWS-RO-Solr-Indexing-Daily-Prd-wf
