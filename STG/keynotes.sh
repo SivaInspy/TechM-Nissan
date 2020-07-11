@@ -1,8 +1,10 @@
 sqoop import --connect jdbc:oracle:thin:@10.78.78.150:58532/ODDBEFLO --query "select INCDNT_IVSTGN_RPT_FORM_NM,TRD_CD,TRD_CD_DS,CAST('x987731' as VARCHAR(10)) as CRTE_USR_ID,CURRENT_TIMESTAMP as CRTE_TS,UPDT_TS,CMPST_KY from BID_TRD_VS.INCDNT_IVSTGN_TRD_EXTRCT_VW WHERE \$CONDITIONS" --target-dir hdfs://bdedev/data/lgl_iir/raw/incdnt_ivstgn_trd_raw_test --fields-terminated-by '\001' --null-string '' --null-non-string '' --escaped-by '\\' --check-column UPDT_TS --incremental 'lastmodified' --hive-drop-import-delims --merge-key INCDNT_IVSTGN_RPT_FORM_NM --last-value '0001-01-01 00:00:00.000' --username BDESELECT --password-file hdfs://bdedev/projects/ews/lib/.bidwPassword -m 1
 
+sqoop import --connect jdbc:oracle:thin:@10.78.78.155:58532/OSDBEFLO --query "select INCDNT_IVSTGN_RPT_FORM_NM,TRD_CD,TRD_CD_DS,CAST('x987731' as VARCHAR(10)) as CRTE_USR_ID,CURRENT_TIMESTAMP as CRTE_TS,UPDT_TS,CMPST_KY from BID_TRD_VS.INCDNT_IVSTGN_TRD_EXTRCT_VW WHERE \$CONDITIONS" --target-dir hdfs://bdedev/tmp/x135756/test --fields-terminated-by '\001' --null-string '' --null-non-string '' --escaped-by '\\' --check-column UPDT_TS --incremental 'lastmodified' --hive-drop-import-delims --merge-key INCDNT_IVSTGN_RPT_FORM_NM --last-value '0001-01-01 00:00:00.000' --username BDESELECT --password-file hdfs://bdedev/projects/ews/lib/.bidwPassword -m 1
+
 sqoop import --connect jdbc:oracle:thin:@10.78.78.150:58532/ODDBEFLO --query "select INCDNT_IVSTGN_RPT_FORM_NM,TRD_CD,TRD_CD_DS,CAST('x987731' as VARCHAR(10)) as CRTE_USR_ID,CURRENT_TIMESTAMP as CRTE_TS,UPDT_TS,CMPST_KY from BID_TRD_VS.INCDNT_IVSTGN_TRD_EXTRCT_VW WHERE \$CONDITIONS" --target-dir hdfs://bdedev/data/lgl_iir/raw/incdnt_ivstgn_trd_raw_test --fields-terminated-by '\001' --null-string '' --null-non-string '' --escaped-by '\\' --check-column UPDT_TS --incremental 'lastmodified' --hive-drop-import-delims --merge-key INCDNT_IVSTGN_RPT_FORM_NM --last-value 'lastvalue' --username BDESELECT --password-file hdfs://bdedev/projects/ews/lib/.bidwPassword -m 1
 
-sqoop import --connect jdbc:oracle:thin:@10.78.78.155:58532/OSDBEFLO --query "select INCDNT_IVSTGN_RPT_FORM_NM,TRNSCN_DT,ESTMTD_SPD_TX,OTHR_VHCL_INVLV_IN,PRPRTY_DS,TRD_EFCTV_DT,VHCL_ISPCTN_DT,VHCL_ID_NB,VHCL_MK_NM,VHCL_YR_NB,VHCL_NMC_MDL_CD,CLMNT_ST_CD,CLMNT_ST_NM,CLMNT_CNTRY_CD,ADTNL_OBSVTN_TX,VHCL_ADVNCD_TCHLGY_IN,ARBG_OBSVTN_TX,ALGTN_CMPNT_LVL_1_NM,ALGTN_CMPNT_LVL_2_NM,ALGTN_CMPNT_LVL_3_NM,BRAK_SPLMNT_IN,SLSFRC_CASE_ID,CTR_REAR_VHCL_OCPNT_INJRY_IN,INCDNT_OCRNC_TS,VHCL_DRVR_INJRY_DS,CTR_REAR_VHCL_OCPNT_INJRY_DS,LFT_REAR_VHCL_OCPNT_INJRY_DS,OTHR_VHCL_OCPNT_INJRY_DS,RGHT_REAR_VHCL_OCPNT_INJRY_DS,ALGTN_DTL_DS,PRDT_SFTY_RSPNS_DS,DRVR_ARBG_STS_NM,VHCL_DRVR_INJRY_IN,PWRTRN_OBSVTN_TX,EXTR_BDY_INCDNT_TX,INCDNT_IVSTGN_RPT_FORM_ID,RMVD_ALGD_DFCTV_PRT_TX,INTRR_INFRMN_TX,LFT_REAR_ARBG_STS_NM,LFT_REAR_VHCL_OCPNT_INJRY_IN,VHCL_PRKD_DRTN_TX,INCDNT_LCTN_TX,MN_ALGTN_NM,ISPCTN_MLG_NB,PRDT_SFTY_MNTR_IN,PRPRTY_DMG_DS,OTHR_VHCL_DMG_DS,PRSN_INVLVD_NB,OTHR_SPLMNT_RPT_NM,ADTNL_VHCL_INFRMN_TX,OTHR_VHCL_OCPNT_INJRY_IN,OTHR_ARBG_STS_NM,OTHR_VHCL_TYP_TX,VHCL_CRNT_LCTN_TX,INCDNT_SHRT_DS,PRDT_SFTY_RSPNS_TX,RSTRNT_SYSTM_SPLMNT_RPT_IN,RGHT_FRNT_VHCL_OCPNT_INJRY_DS,RGHT_FRNT_ARBG_STS_NM,RGHT_FRNT_VHCL_OCPNT_INJRY_IN,RGHT_REAR_ARBG_STS_NM,RGHT_REAR_VHCL_OCPNT_INJRY_IN,SEAT_RSTRNT_OBSVTN_TX,SCNDRY_ALGTN_NM,STERNG_SPLMNT_RPT_IN,THRML_SPLMNT_RPT_IN,TRNMSN_SPLMNT_RPT_IN,UINTD_ACLRT_SPLMNT_RPT_IN,UNDR_CARG_OBSVTN_TX,ESTMTD_VHCL_SPD_TX,IVSTGN_VIN_ID,WTHR_CNDTN_TX,INCDNT_IVSTGN_RPT_PDF_URL_TX,INCDNT_DTL_DS,CSTMR_RQST_TX,INCDNT_VHCL_MDL_YR_NB,INCDNT_VHCL_NMC_MDL_CD,INCDNT_VHCL_MK_NM,ATCHMT_IN,VHCL_NMC_MDL_NM,DRV_TRN_DS,DRV_TRN_CD,TRM_LVL_DS,MNFCR_DT,NML_PRDCTN_MDL_CD,ORGNL_IN_SVC_DT,TRNMSN_TYP_CD,TRNMSN_TYP_NM, EMSN_CRFCTN_NB,CURRENT_TIMESTAMP as CRTE_TS,CAST(' x987731' as VARCHAR(10)) as CRTE_USR_ID,UPDT_TS from  BID_TRD_VS.INCDNT_IVSTGN_EXTRCT_VW WHERE \$CONDITIONS" --target-dir hdfs://bdestg/data/lgl_iir/raw/incdnt_ivstgn_raw --fields-terminated-by '\001' --null-string '' --null-non-string '' --escaped-by '\\' --check-column UPDT_TS --map-column-java INCDNT_DTL_DS=String --incremental 'lastmodified' --hive-drop-import-delims --merge-key INCDNT_IVSTGN_RPT_FORM_NM --last-value 'lastvalue' --username 'BDESELECT' --password-file hdfs://bdestg/projects/ews/lib/.bidwPassword -m 1
+sqoop import --connect jdbc:oracle:thin:@10.78.78.155:58532/OSDBEFLO --query "select INCDNT_IVSTGN_RPT_FORM_NM,TRNSCN_DT,ESTMTD_SPD_TX,OTHR_VHCL_INVLV_IN,PRPRTY_DS,TRD_EFCTV_DT,VHCL_ISPCTN_DT,VHCL_ID_NB,VHCL_MK_NM,VHCL_YR_NB,VHCL_NMC_MDL_CD,CLMNT_ST_CD,CLMNT_ST_NM,CLMNT_CNTRY_CD,ADTNL_OBSVTN_TX,VHCL_ADVNCD_TCHLGY_IN,ARBG_OBSVTN_TX,ALGTN_CMPNT_LVL_1_NM,ALGTN_CMPNT_LVL_2_NM,ALGTN_CMPNT_LVL_3_NM,BRAK_SPLMNT_IN,SLSFRC_CASE_ID,CTR_REAR_VHCL_OCPNT_INJRY_IN,INCDNT_OCRNC_TS,VHCL_DRVR_INJRY_DS,CTR_REAR_VHCL_OCPNT_INJRY_DS,LFT_REAR_VHCL_OCPNT_INJRY_DS,OTHR_VHCL_OCPNT_INJRY_DS,RGHT_REAR_VHCL_OCPNT_INJRY_DS,ALGTN_DTL_DS,PRDT_SFTY_RSPNS_DS,DRVR_ARBG_STS_NM,VHCL_DRVR_INJRY_IN,PWRTRN_OBSVTN_TX,EXTR_BDY_INCDNT_TX,INCDNT_IVSTGN_RPT_FORM_ID,RMVD_ALGD_DFCTV_PRT_TX,INTRR_INFRMN_TX,LFT_REAR_ARBG_STS_NM,LFT_REAR_VHCL_OCPNT_INJRY_IN,VHCL_PRKD_DRTN_TX,INCDNT_LCTN_TX,MN_ALGTN_NM,ISPCTN_MLG_NB,PRDT_SFTY_MNTR_IN,PRPRTY_DMG_DS,OTHR_VHCL_DMG_DS,PRSN_INVLVD_NB,OTHR_SPLMNT_RPT_NM,ADTNL_VHCL_INFRMN_TX,OTHR_VHCL_OCPNT_INJRY_IN,OTHR_ARBG_STS_NM,OTHR_VHCL_TYP_TX,VHCL_CRNT_LCTN_TX,INCDNT_SHRT_DS,PRDT_SFTY_RSPNS_TX,RSTRNT_SYSTM_SPLMNT_RPT_IN,RGHT_FRNT_VHCL_OCPNT_INJRY_DS,RGHT_FRNT_ARBG_STS_NM,RGHT_FRNT_VHCL_OCPNT_INJRY_IN,RGHT_REAR_ARBG_STS_NM,RGHT_REAR_VHCL_OCPNT_INJRY_IN,SEAT_RSTRNT_OBSVTN_TX,SCNDRY_ALGTN_NM,STERNG_SPLMNT_RPT_IN,THRML_SPLMNT_RPT_IN,TRNMSN_SPLMNT_RPT_IN,UINTD_ACLRT_SPLMNT_RPT_IN,UNDR_CARG_OBSVTN_TX,ESTMTD_VHCL_SPD_TX,IVSTGN_VIN_ID,WTHR_CNDTN_TX,INCDNT_IVSTGN_RPT_PDF_URL_TX,INCDNT_DTL_DS,CSTMR_RQST_TX,INCDNT_VHCL_MDL_YR_NB,INCDNT_VHCL_NMC_MDL_CD,INCDNT_VHCL_MK_NM,ATCHMT_IN,VHCL_NMC_MDL_NM,DRV_TRN_DS,DRV_TRN_CD,TRM_LVL_DS,MNFCR_DT,NML_PRDCTN_MDL_CD,ORGNL_IN_SVC_DT,TRNMSN_TYP_CD,TRNMSN_TYP_NM, EMSN_CRFCTN_NB,CURRENT_TIMESTAMP as CRTE_TS,CAST(' x987731' as VARCHAR(10)) as CRTE_USR_ID,UPDT_TS from BID_TRD_VS.INCDNT_IVSTGN_EXTRCT_VW WHERE \$CONDITIONS" --target-dir hdfs://bdestg/data/lgl_iir/raw/incdnt_ivstgn_raw --fields-terminated-by '\001' --null-string '' --null-non-string '' --escaped-by '\\' --check-column UPDT_TS --map-column-java INCDNT_DTL_DS=String --incremental 'lastmodified' --hive-drop-import-delims --merge-key INCDNT_IVSTGN_RPT_FORM_NM --last-value 'lastvalue' --username 'BDESELECT' --password-file hdfs://bdestg/projects/ews/lib/.bidwPassword -m 1
 
 
 sqoop import --connect jdbc:oracle:thin:@10.78.78.155:58532/OSDBEFLO --query "select INCDNT_IVSTGN_RPT_FORM_NM,TRD_CD,TRD_CD_DS,CAST('x987731' as VARCHAR(10)) as CRTE_USR_ID,CURRENT_TIMESTAMP as CRTE_TS,CMPST_KY,UPDT_TS from BID_TRD_VS.INCDNT_IVSTGN_TRD_EXTRCT_VW WHERE \$CONDITIONS" --target-dir hdfs://bdestg/data/lgl_iir/raw/incdnt_ivstgn_trd_raw --fields-terminated-by '\001' --null-string '' --null-non-string '' --escaped-by '\\' --check-column UPDT_TS --incremental 'lastmodified' --hive-drop-import-delims --merge-key INCDNT_IVSTGN_RPT_FORM_NM --last-value '0001-01-01 00:00:00.000' --username 'BDESELECT' --password-file hdfs://bdestg/projects/ews/lib/.bidwPassword -m 1
@@ -29,7 +31,9 @@ oozie job --oozie http://usnencpl077.nmcorp.nissan.biz:11000/oozie --config sqoo
 
 
 hdfs dfs -rm /data/lgl_iir/raw/incdnt_ivstgn_raw/*
-hdfs dfs -rm /data/lgl_iir/raw/incdnt_ivstgn_raw/
+hdfs dfs -rm /data/lgl_iir/raw/incdnt_ivstgn_trd_raw/*
+hdfs dfs -ls /data/lgl_iir/raw/incdnt_ivstgn_raw/
+hdfs dfs -ls /data/lgl_iir/raw/incdnt_ivstgn_trd_raw/
 
 incdnt_ivstgn_raw
 incdnt_ivstgn_trd_raw
@@ -196,3 +200,139 @@ EWS-PRJ-Ingest-Incremental-Daily-Prd-wf
 EWS-RCL-Ingest-Daily-Prd-wf
 EWS-RO-Cleansing-Daily-Prd-wf
 EWS-RO-Solr-Indexing-Daily-Prd-wf
+
+
+09/07/2020
+=======================================================
+sqoop import --connect jdbc:oracle:thin:@10.78.78.150:58532/ODDBEFLO --query "select incdnt_nb,incdnt_typ_ds,vhcl_nmc_mdl_cd,vhcl_id_nb,vhcl_yr_nb,vhcl_mk_nm,trd_cd,st_cd,st_nm,dth_cn,injry_cn,whlsl_dlr_nb,whlsl_aflt_cmpny_cd,cntry_cd,incdnt_ocrnc_dt,trd_efctv_dt,mnl_unq_id,atchmt_in,trnscn_dt,rtl_1st_sls_dls_nb,rtl_1st_sls_aflt_cmpny_cd,trd_sqnc_nb,incdnt_vhcl_mk_nm,incdnt_vhcl_mdl_cd,incdnt_vhcl_mdl_yr_nb,incdnt_vhcl_id_nb,lgl_cntry_st_nm,nhtsa_rptd_dt,incdnt_ds,algtn_ds,frgn_vhcl_mdl_nm,prprty_dmg_cd,impct_cd,vhcl_nmc_mdl_nm,drv_trn_ds,drv_trn_cd,trm_lvl_ds,mnfcr_dt,nml_prdctn_mdl_cd,orgnl_in_svc_dt,engn_prfx_cd,trnmsn_typ_cd,trnmsn_typ_nm,emsn_crfctn_nb,trd_cd_ds,crte_ts,crte_usr_id from BID_TRD_VS.LGL_MATR_FC_EXTRCT_VW WHERE \$CONDITIONS" --target-dir hdfs://bdedev/data/lgl_matr/base/lgl_matr_base --fields-terminated-by '\001' --null-string '' --null-non-string '' --escaped-by '\\' --check-column updt_ts --incremental 'lastmodified' --hive-drop-import-delims --merge-key incdnt_nb --last-value '0001-01-01 00:00:00.000' --username 'BIDBATCH' --password 'nissan' -m 1
+
+
+CAST('x987731' as VARCHAR(10)) as CRTE_USR_ID,CURRENT_TIMESTAMP as CRTE_TS,UPDT_TS,CMPST_KY
+
+
+sqoop import --connect jdbc:oracle:thin:@10.78.78.155:58532/OSDBEFLO --query "select iif.INCDNT_IVSTGN_RPT_FORM_NM || trd.TRD_CD as CMPST_KY,
+iif.INCDNT_IVSTGN_RPT_FORM_NM,
+ trd.TRD_CD,
+ trd.TRD_CD_DS,
+ iif.crte_ts AS UPDT_TS
+from
+BID_TRD_VS.INCDNT_IVSTGN_CRNT_FC_VW iif
+left outer join BID_TRD.TRD_DM trd on trd.TRD_DM_KY = iif.TRD_DM_KY WHERE \$CONDITIONS" --target-dir hdfs://bdedev/tmp/x135756/test --fields-terminated-by '\001' --null-string '' --null-non-string '' --escaped-by '\\' --check-column UPDT_TS --incremental 'lastmodified' --hive-drop-import-delims --merge-key INCDNT_IVSTGN_RPT_FORM_NM --last-value '0001-01-01 00:00:00.000' --username BDESELECT --password-file hdfs://bdedev/projects/ews/lib/.bidwPassword -m 1
+
+
+
+sqoop import --connect jdbc:oracle:thin:@10.78.78.155:58532/OSDBEFLO --query "select iif.INCDNT_IVSTGN_RPT_FORM_NM,
+td.CLNDR_DT AS TRNSCN_DT,
+TED.CLNDR_DT AS TRD_EFCTV_DT,
+VID.CLNDR_DT AS VHCL_ISPCTN_DT,
+vd.VHCL_ID_NB,
+vd.VHCL_NMC_MDL_CD,
+vd.VHCL_YR_NB,
+vd.VHCL_MK_NM,
+sd.st_cd AS CLMNT_ST_CD,
+sd.st_nm AS CLMNT_ST_NM,
+CD.CNTRY_CD AS CLMNT_CNTRY_CD,
+iif.ESTMTD_SPD_TX,
+iif.OTHR_VHCL_INVLV_IN,
+iif.PRPRTY_DS,
+iif.ADTNL_OBSVTN_TX,
+iif.VHCL_ADVNCD_TCHLGY_IN,
+iif.ARBG_OBSVTN_TX,
+iif.ALGTN_CMPNT_LVL_1_NM,
+iif.ALGTN_CMPNT_LVL_2_NM,
+iif.ALGTN_CMPNT_LVL_3_NM,
+iif.BRAK_SPLMNT_IN,
+iif.SLSFRC_CASE_ID,
+iif.CTR_REAR_VHCL_OCPNT_INJRY_IN,
+iif.INCDNT_OCRNC_TS,
+iif.VHCL_DRVR_INJRY_DS,
+iif.CTR_REAR_VHCL_OCPNT_INJRY_DS,
+iif.LFT_REAR_VHCL_OCPNT_INJRY_DS,
+iif.OTHR_VHCL_OCPNT_INJRY_DS,
+iif.RGHT_REAR_VHCL_OCPNT_INJRY_DS,
+iif.ALGTN_DTL_DS,
+iif.PRDT_SFTY_RSPNS_DS,
+iif.DRVR_ARBG_STS_NM,
+iif.VHCL_DRVR_INJRY_IN,
+iif.PWRTRN_OBSVTN_TX,
+iif.EXTR_BDY_INCDNT_TX,
+iif.INCDNT_IVSTGN_RPT_FORM_ID,
+iif.RMVD_ALGD_DFCTV_PRT_TX,
+iif.INTRR_INFRMN_TX,
+iif.LFT_REAR_ARBG_STS_NM,
+iif.LFT_REAR_VHCL_OCPNT_INJRY_IN,
+iif.VHCL_PRKD_DRTN_TX,
+iif.INCDNT_LCTN_TX,
+iif.MN_ALGTN_NM,
+iif.ISPCTN_MLG_NB,
+iif.PRDT_SFTY_MNTR_IN,
+iif.PRPRTY_DMG_DS,
+iif.OTHR_VHCL_DMG_DS,
+iif.PRSN_INVLVD_NB,
+iif.OTHR_SPLMNT_RPT_NM,
+iif.ADTNL_VHCL_INFRMN_TX,
+iif.OTHR_VHCL_OCPNT_INJRY_IN,
+iif.OTHR_ARBG_STS_NM,
+iif.OTHR_VHCL_TYP_TX,
+iif.VHCL_CRNT_LCTN_TX,
+iif.INCDNT_SHRT_DS,
+iif.PRDT_SFTY_RSPNS_TX,
+iif.RSTRNT_SYSTM_SPLMNT_RPT_IN,
+iif.RGHT_FRNT_VHCL_OCPNT_INJRY_DS,
+iif.RGHT_FRNT_ARBG_STS_NM,
+iif.RGHT_FRNT_VHCL_OCPNT_INJRY_IN,
+iif.RGHT_REAR_ARBG_STS_NM,
+iif.RGHT_REAR_VHCL_OCPNT_INJRY_IN,
+iif.SEAT_RSTRNT_OBSVTN_TX,
+iif.SCNDRY_ALGTN_NM,
+iif.STERNG_SPLMNT_RPT_IN,
+iif.THRML_SPLMNT_RPT_IN,
+iif.TRNMSN_SPLMNT_RPT_IN,
+iif.UINTD_ACLRT_SPLMNT_RPT_IN,
+iif.UNDR_CARG_OBSVTN_TX,
+iif.ESTMTD_VHCL_SPD_TX,
+iif.IVSTGN_VIN_ID,
+iif.WTHR_CNDTN_TX,
+iif.INCDNT_IVSTGN_RPT_PDF_URL_TX,
+iif.INCDNT_DTL_DS,
+iif.CSTMR_RQST_TX,
+iif.INCDNT_VHCL_MDL_YR_NB,
+iif.INCDNT_VHCL_NMC_MDL_CD,
+iif.INCDNT_VHCL_MK_NM,
+iif.ATCHMT_IN,
+iif.CRTE_TS AS UPDT_TS,
+vd.DRV_TRN_CD,
+vd.DRV_TRN_DS,
+vd.MNFCR_DT,
+vd.TRM_LVL_DS,
+vd.VHCL_NMC_MDL_NM,
+vd.EMSN_CRFCTN_NB,
+vd.ENGN_PRFX_CD,
+vd.NML_PRDCTN_MDL_CD,
+vd.ORGNL_IN_SVC_DT,
+vd.TRNMSN_TYP_CD,
+vd.TRNMSN_TYP_NM
+from
+(select iv.INCDNT_DM_KY, iv.INCDNT_TYP_DM_KY, max(iv.trd_dm_ky) as max_trd_dm_ky
+from BID_TRD_VS.INCDNT_IVSTGN_CRNT_FC_VW iv
+group by iv.INCDNT_DM_KY, iv.INCDNT_TYP_DM_KY) a
+join BID_TRD_VS.INCDNT_IVSTGN_CRNT_FC_VW iif
+on a.INCDNT_DM_KY = iif.INCDNT_DM_KY
+and a.INCDNT_TYP_DM_KY = iif.INCDNT_TYP_DM_KY
+and a.max_trd_dm_ky = iif.trd_dm_ky
+left outer join bid_veh.vhcl_dm vd on     vd.VHCL_DM_KY = iif.VHCL_DM_KY and vd.VHCL_DM_END_DT > sysdate
+left outer join BID_VEH.ST_DM sd   on     sd.ST_DM_KY = iif.CLMNT_ST_DM_KY
+left outer join BID_VEH.CNTRY_DM cd  on   cd.CNTRY_DM_KY = iif.CLMNT_CNTRY_DM_KY
+left outer join NEDW_DIM.CLNDR_DM ted on  ted.clndr_dm_ky = IIF.TRD_EFCTV_DT_KY
+left outer join NEDW_DIM.CLNDR_DM td  on  td.clndr_dm_ky = IIF.TRNSCN_DT_KY
+left outer join NEDW_DIM.CLNDR_DM VID  on  VID.clndr_dm_ky = iif.VHCL_ISPCTN_DT_KY WHERE \$CONDITIONS" --target-dir hdfs://bdedev/tmp/x135756/test --fields-terminated-by '\001' --null-string '' --null-non-string '' --escaped-by '\\' --check-column UPDT_TS --incremental 'lastmodified' --hive-drop-import-delims --merge-key INCDNT_IVSTGN_RPT_FORM_NM --last-value '0001-01-01 00:00:00.000' --username BDESELECT --password-file hdfs://bdedev/projects/ews/lib/.bidwPassword -m 1
+
+
+sqoop import --connect jdbc:oracle:thin:@10.78.79.27:55298/OPDBEFLO --query "select iif.INCDNT_IVSTGN_RPT_FORM_NM || trd.TRD_CD as CMPST_KY,
+iif.INCDNT_IVSTGN_RPT_FORM_NM,
+ trd.TRD_CD,
+ trd.TRD_CD_DS,
+ iif.crte_ts AS UPDT_TS
+from
+BID_TRD_VS.INCDNT_IVSTGN_CRNT_FC_VW iif
+left outer join BID_TRD.TRD_DM trd on trd.TRD_DM_KY = iif.TRD_DM_KY WHERE \$CONDITIONS" --target-dir hdfs://bdedev/tmp/x135756/test --fields-terminated-by '\001' --null-string '' --null-non-string '' --escaped-by '\\' --check-column UPDT_TS --incremental 'lastmodified' --hive-drop-import-delims --merge-key INCDNT_IVSTGN_RPT_FORM_NM --last-value '0001-01-01 00:00:00.000' --username 'BIDBATCH' --password 'nissan' -m 1
