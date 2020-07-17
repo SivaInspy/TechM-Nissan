@@ -28,6 +28,9 @@ EQUIP
 kinit -kt /etc/security/keytabs/X981138.keytab x981138@NMCORP.NISSAN.BIZ
 EWS:
 kinit -kt /etc/security/keytabs/x987731.keytab x987731@NMCORP.NISSAN.BIZ
+kinit -kt /etc/security/keytabs/x985427.keytab x985427@NMCORP.NISSAN.BIZ
+kinit -kt /etc/security/keytabs/x980066.keytab x980066@NMCORP.NISSAN.BIZ
+
 
 hdfs dfs -cp /projects/ews/scripts/spark/search/conf/drive_sqoop/sqoop_*.xml /projects/ews/scripts/spark/search/conf/iir_sqoop/
 oozie job --oozie http://usnencpl077.nmcorp.nissan.biz:11000/oozie --config sqoop_arch.properties -run
@@ -142,68 +145,6 @@ http://svn.na.nissan.biz/svn/NNA/NNA_TCS_FQI_RCode/branches/EQUIP/equip_reportin
 # EWS properties file loacation
 http://svn.na.nissan.biz/svn/NNA/NNA_TCS_EWS_BDE/trunk/prd/oozie/ews.properties
 http://svn.na.nissan.biz/svn/NNA/NNA_TCS_EWS_BDE/trunk/prd/oozie/ro-cleansing.properties
-
-
-
-'name=EQUIP-AVES-Condense-Weekly-BDE-STG-wf;name=EQUIP-AVES-Ingest-Daily-BDE-PRD-wf;name=ConsumerAffairs-Condense-Weekly-BDE-PRD-wf'
-
-
-
-DIH	PRD	http://10.78.11.31:18080/dih-console/login.jsp
-DIH Non	PRD	http://10.78.11.32:18080/dih-console/login.jsp
-Oozie	PRD	http://usnencpl075.nmcorp.nissan.biz:11000/oozie/
-Oozie	STG	http://usnencpl077.nmcorp.nissan.biz:11000/oozie/
-Oozie	DEV	http://usnencpl079.nmcorp.nissan.biz:11000/oozie/
-Ambari	PRD	http://usnencpl075.nmcorp.nissan.biz:8080/#/login
-Ambari	STG	http://usnencpl077.nmcorp.nissan.biz:8080/#/login
-Ambari	DEV	http://usnencpl079.nmcorp.nissan.biz:8080/#/login
-Zeppelin	PRD	http://usnencpl075.nmcorp.nissan.biz:9995/
-Zeppelin	STG	http://usnencpl077.nmcorp.nissan.biz:9995/
-Zeppelin	DEV	http://usnencpl079.nmcorp.nissan.biz:9995/
-Tableau	PRD	https://tableau.na.nissan.biz/#/site/TCS/datasources
-Solr	STG	http://usnencpl091.nmcorp.nissan.biz:8983/solr/#/
-EQUIP	PRD	https://datamgtanalytics.na.nissan.biz/
-EQUIP	STG	https://datamgtanalytics.stage.na.nissan.biz/
-Confluence		https://confluence.na.nissan.biz/
-Jira		https://jira.na.nissan.biz/
-Zoom		https://nissan-usa.zoom.us/j/8647358496
-ServiceNow		https://nnanissan.service-now.com/
-
-
-
-
-
-Claims-Ingest-Daily-BDE-PRD-wf, Skipped thrice, Now RUNNING
-ConsumerAffairs-Ingest-Daily-BDE-PRD-wf, Skipped thrice, Now SUCCEEDED
-DBSRO-data-alert-BDE-PRD-wf, Now SKIPPED for today
-dbsro-wf, SUUCEEDED up to 13:25 GMT, Now WAITING
-EQUIP-AVES-Ingest-Daily-BDE-PRD-wf,
-EQUIP-ConsumerAffairs-Solr-Daily-BDE-PRD-wf, Skipped thrice, Now SUCCEEDED
-EQUIP-incident-rate-daily-wf, Skipped once, Now SUCCEEDED
-EQUIP-INSPECT-Ingest-Daily-BDE-PRD-wf, Skipped twice, Now SUCCEEDED
-EQUIP-Monitor-Ingestion-Daily-BDE-PRD-wf, Skipped Now
-EQUIP-MQR-Source-Ingestion-Daily-wf, Skipped Now
-EQUIP-pfp-daily-ingest-wf, Skipped once, Now SUCCEEDED
-EQUIP-Techline-Solr-Daily-BDE-PRD-wf, Skipped thrice, Now running
-EWS-Drive-Common-Ingest-Daily-Prd-wf, Some hourly job killed, Now SUCCEEDED
-EWS-Drive-Ingest-Inc-daily-Prd-wf,
-EWS-DRIVE-tr-Solr-Indexing-Daily-Prd-wf,
-EWS-ML-Predict-Daily-Prd-wf,
-shell-wf, KILLED twice, Now SUCCEEDED
-Techline-Ingest-Daily-BDE-PRD-wf, Skipped twice, Now SECCEEDED
-
-
-
-EWS-CA-Solr-Indexing-Daily-Prd-wf
-EWS-FIR-Ingest-Incremental-Daily-Prd-wf
-EWS-NHTSA-IVSTGN-Ingest-Daily-Prd-wf
-EWS-NHTSA-RCL-Ingest-Daily-Prd-wf
-EWS-NHTSA-SVC-Ingest-Daily-Prd-wf
-EWS-PRJ-Ingest-Incremental-Daily-Prd-wf
-EWS-RCL-Ingest-Daily-Prd-wf
-EWS-RO-Cleansing-Daily-Prd-wf
-EWS-RO-Solr-Indexing-Daily-Prd-wf
-
 
 09/07/2020
 =======================================================
@@ -339,3 +280,108 @@ iif.INCDNT_IVSTGN_RPT_FORM_NM,
 from
 BID_TRD_VS.INCDNT_IVSTGN_CRNT_FC_VW iif
 left outer join BID_TRD.TRD_DM trd on trd.TRD_DM_KY = iif.TRD_DM_KY WHERE \$CONDITIONS" --target-dir hdfs://bdedev/tmp/x135756/test --fields-terminated-by '\001' --null-string '' --null-non-string '' --escaped-by '\\' --check-column UPDT_TS --incremental 'lastmodified' --hive-drop-import-delims --merge-key INCDNT_IVSTGN_RPT_FORM_NM --last-value '0001-01-01 00:00:00.000' --username 'BIDBATCH' --password 'nissan' -m 1
+
+
+
+printf "\n\n\n PRD Workflow Jobs grep "$(date +"%Y-%m-%d")"\n\n\n"
+oozie jobs -oozie http://usnencpl075.nmcorp.nissan.biz:11000/oozie -jobtype wf | grep "$(date +"%Y-%m-%d")" | sort -k2,2 -u
+printf "\n\n\n PRD Coordinator Jobs grep "$(date +"%Y-%m-%d")"\n\n\n"
+oozie jobs -oozie http://usnencpl075.nmcorp.nissan.biz:11000/oozie -jobtype coordinator | sed 1d | sort -k2,2 -u
+echo "**************************************************************"
+printf "\n\n\n STG Workflow Jobs grep "$(date +"%Y-%m-%d")"\n\n\n"
+oozie jobs -oozie http://usnencpl077.nmcorp.nissan.biz:11000/oozie -jobtype wf | grep "$(date +"%Y-%m-%d")" | sort -k2,2 -u
+printf "\n\n\n STG Coordinator Jobs grep "$(date +"%Y-%m-%d")"\n\n\n"
+oozie jobs -oozie http://usnencpl077.nmcorp.nissan.biz:11000/oozie -jobtype coordinator | sed 1d | sort -k2,2 -u
+echo "**************************************************************"
+
+printf '\n\n\n"PRD Workflow Jobs on "%s"\n\n\n' $(date +"%Y-%m-%d")
+oozie jobs -oozie http://usnencpl075.nmcorp.nissan.biz:11000/oozie -len 1600 -filter "status=KILLED;status=RUNNING;status=SUCCEEDED" | grep "$(date +"%Y-%m-%d")" | sed "/actv\|CARET\|Conexio\|Infiniti\|LN-ACKLGT\|Nissan\|ODO\|op\|optout\|PDAP\|VPA\|----\|Job/d;s/wf/wf /g;s/coord/coord /g" | sort -k2,2 -u
+printf '\n\n\n"PRD Coordinator Jobs on "%s"\n\n\n' $(date +"%Y-%m-%d")
+oozie jobs -oozie http://usnencpl075.nmcorp.nissan.biz:11000/oozie -jobtype coordinator | sed "/actv\|CARET\|Conexio\|Infiniti\|LN-ACKLGT\|Nissan\|ODO\|op\|optout\|PDAP\|VPA\|----\|Job/d;s/wf/wf /g;s/coord/coord /g" | sort -k2,2 -u
+printf '\n\n\n"STG Workflow Jobs on "%s"\n\n\n' $(date +"%Y-%m-%d")
+oozie jobs -oozie http://usnencpl075.nmcorp.nissan.biz:11000/oozie -len 1600 -filter "status=KILLED;status=RUNNING;status=SUCCEEDED" | grep "$(date +"%Y-%m-%d")" | sed "/actv\|CARET\|Conexio\|Infiniti\|LN-ACKLGT\|Nissan\|ODO\|op\|optout\|PDAP\|VPA\|----\|Job/d;s/wf/wf /g;s/coord/coord /g" | sort -k2,2 -u
+printf '\n\n\n"STG Coordinator Jobs on "%s"\n\n\n' $(date +"%Y-%m-%d")
+oozie jobs -oozie http://usnencpl075.nmcorp.nissan.biz:11000/oozie -jobtype coordinator | sed "/actv\|CARET\|Conexio\|Infiniti\|LN-ACKLGT\|Nissan\|ODO\|op\|optout\|PDAP\|VPA\|----\|Job/d;s/wf/wf /g;s/coord/coord /g" | sort -k2,2 -u
+
+
+Source : ODM
+MNS_TCS_VS.GNRL_TSK_FRC_CLM_UNLMTD_VW
+
+
+Target : BDE
+
+qlty_3mis_tran.GNRL_TSK_FRC_CLM_BASE
+
+
+hive -e "qlty_3mis_tran.GNRL_TSK_FRC_CLM_BASE" | wc -l
+
+
+select max(SRC_SYSTM_UPDT_TS) FROM MNS_QCS_VS.QCS_RSPNDT_VW
+
+Claims-Condense-Weekly-BDE-PRD-wf
+Claims-Ingest-Daily-BDE-PRD-wf
+ConsumerAffairs-Condense-Weekly-BDE-PRD-wf
+ConsumerAffairs-Ingest-Daily-BDE-PRD-wf
+EQUIP-AVES-Condense-Weekly-BDE-STG-wf
+EQUIP-AVES-Ingest-Daily-BDE-PRD-wf
+EQUIP-Claims-Condense-Daily-BDE-PRD-wf
+EQUIP-Claims-Solr-Daily-BDE-PRD-wf
+EQUIP-ConsumerAffairs-Condense-Weekly-BDE-PRD-wf
+EQUIP-ConsumerAffairs-Solr-Daily-BDE-PRD-wf
+EQUIP-Gear-2-0-Monthly-BDE-PRD-wf
+EQUIP-Gears-3.0-Adhoc-BDE-PRD-wf
+EQUIP-incident-rate-daily-wf
+EQUIP-INSPECT-Condense-Weekly-BDE-PRD-wf
+EQUIP-INSPECT-Ingest-Daily-BDE-PRD-wf
+EQUIP-Materialized-Views-BDE-PRD-wf
+EQUIP-Monitor-Ingestion-Daily-BDE-PRD-wf
+EQUIP-MQR-Calculations-Monthly-wf
+EQUIP-MQR-Purge-Monthly-wf
+EQUIP-MQR-Snapshot-Monthly-wf
+EQUIP-MQR-Source-Ingestion-Daily-wf
+EQUIP-pfp-daily-ingest-wf
+EQUIP-Techline-Condense-Weekly-BDE-PRD-wf
+EQUIP-Techline-Solr-Daily-BDE-PRD-wf
+EQUIP-Vehicle-Extract-Daily-prd-wf
+QCS-survey-Ingest-Fullload-Daily-BDE-PRD-wf
+QCS-survey-Ingest-Incremental-Daily-BDE-PRD-wf
+Techline-Condense-Weekly-BDE-PRD-wf
+Techline-Ingest-Daily-BDE-PRD-wf
+
+
+
+WRNTY_CLM_NB	WRNTY_CLM_AD_DT	CRTE_TS	VIN_ID	FQI_WRNTY_PFP_NB	WO_NB	WOL_ITM_NB	VHCL_RPR_DT	DLR_PRT_AM	DLR_LBR_AM	DLR_TOTL_AM	VHCL_MLG_NB	RCVD_PFP_NB	SVC_DLR_NB	WRNTY_PFP_DS	TCHNCN_CMNT_TX	CSTMR_CMNT_TX	RPT_EXCLSN_IN	CLM_MIS_NB	DLR_NM	DLR_CTY_NM	DLR_ST_CD	DLR_PHN_NB	NML_PRDCTN_MDL_CD	VHCL_LN_CD	VHCL_NMC_MDL_CD	RTL_SL_LSE_DT	ORGNL_IN_SVC_DT	MNFCTG_DT	GLBL_MRKT_CD	MNFCTG_VHCL_PLNT_CD	VHCL_YR_NB	ENGN_PRFX_8_DGT_CD	VHCL_ENGN_MDL_CD	TRNMSN_TYP_CD	CV_IN	CNSDTD_PFP_NB	CMN_PNC_ID	GNRL_CMNT_TX	CRCTV_ACTN_PRJCT_RFRNC_ID	TSK_FRC_ISU_CTGRY_TX	TSK_FRC_INTRDCN_DT	DFCT_RSPSBL_GRP_CD	PRT_DSPSTN_TX	PWR_TRN_CLM_CLSFTN_IN	CLM_AFTR_CNTR_MSR_IN	PRT_RCVD_DT	PRT_GNRL_CMNT_TX	TSK_FRC_PRJCT_KY	FQI_OWNR_NM	FQI_ENGNR_NM	FQI_ENGNR_MGR_NM	FQI_STS_KY	FQI_STS_NM	CSTMR_ISU_KY	CSTMR_ISU_DS	CSTMR_ISU_CTGRY_KY	CSTMR_ISU_CTGRY_DS	CSTMR_STSFCN_TEAM_CD	CSTMR_STSFCN_TEAM_NM	CSTMR_STSFCN_PRNT_TEAM_CD	CSTMR_STSFCN_PRNT_TEAM_NM	BSLN_MNFCTG_MNTH_YR_DT	MTURTY_MNTH_YR_DT
+
+
+sqoop import --connect jdbc:oracle:thin:@usnencvl916.nmcorp.nissan.biz:58532/ODDBFQIA --username TCS_ETL --password 'Nissan123$' --query "SELECT WRNTY_CLM_NB,WRNTY_CLM_AD_DT,CRTE_TS,VIN_ID,FQI_WRNTY_PFP_NB,WO_NB,WOL_ITM_NB,VHCL_RPR_DT,DLR_PRT_AM,DLR_LBR_AM,DLR_TOTL_AM,VHCL_MLG_NB,RCVD_PFP_NB,SVC_DLR_NB,WRNTY_PFP_DS,TCHNCN_CMNT_TX,CSTMR_CMNT_TX,RPT_EXCLSN_IN,CLM_MIS_NB,DLR_NM,DLR_CTY_NM,DLR_ST_CD,DLR_PHN_NB,NML_PRDCTN_MDL_CD,VHCL_LN_CD,VHCL_NMC_MDL_CD,RTL_SL_LSE_DT,ORGNL_IN_SVC_DT,MNFCTG_DT,GLBL_MRKT_CD,MNFCTG_VHCL_PLNT_CD,VHCL_YR_NB,ENGN_PRFX_8_DGT_CD,VHCL_ENGN_MDL_CD,TRNMSN_TYP_CD,CV_IN,CNSDTD_PFP_NB,CMN_PNC_ID,GNRL_CMNT_TX,CRCTV_ACTN_PRJCT_RFRNC_ID,TSK_FRC_ISU_CTGRY_TX,TSK_FRC_INTRDCN_DT,DFCT_RSPSBL_GRP_CD,PRT_DSPSTN_TX,PWR_TRN_CLM_CLSFTN_IN,CLM_AFTR_CNTR_MSR_IN,PRT_RCVD_DT,PRT_GNRL_CMNT_TX,TSK_FRC_PRJCT_KY,FQI_OWNR_NM,FQI_ENGNR_NM,FQI_ENGNR_MGR_NM,FQI_STS_KY,FQI_STS_NM,CSTMR_ISU_KY,CSTMR_ISU_DS,CSTMR_ISU_CTGRY_KY,CSTMR_ISU_CTGRY_DS,CSTMR_STSFCN_TEAM_CD,CSTMR_STSFCN_TEAM_NM,CSTMR_STSFCN_PRNT_TEAM_CD,CSTMR_STSFCN_PRNT_TEAM_NM,BSLN_MNFCTG_MNTH_YR_DT,MTURTY_MNTH_YR_DT, CAST('x987731' as VARCHAR(10)) as CRTE_USR_ID,CURRENT_TIMESTAMP as SRC_CRTE_TS FROM MNS_TCS_VS.GNRL_TSK_FRC_CLM_UNLMTD_VW WHERE \$CONDITIONS" --target-dir hdfs://bdedev/data/qlty_3mis_tran/base/GNRL_TSK_FRC_CLM_BASE  --fields-terminated-by '\001' --null-string '' --null-non-string '' --escaped-by '\\'  --delete-target-dir -m 1
+
+/data/qlty_3mis_tran/base/GNRL_TSK_FRC_CLM_BASE
+/data/qlty_3mis_tran/raw/gnrl_tsk_frc_clm_raw
+
+Tableau ELearning’s:
+
+Free eLearning  - https://elearning.tableau.com/
+
+Developers:
+Developer - https://elearning.tableau.com/series/developer
+Analyst - https://elearning.tableau.com/series/analyst
+Data scientist - https://elearning.tableau.com/series/data-scientist
+
+Admins:
+Server Admin – https://elearning.tableau.com/series/server-administrator
+Server Architect – https://elearning.tableau.com/series/server-architect
+
+AWS Track:
+
+AWS Cloud Practitioner - Associates:
+
+o   All classes available online for Free. Please register with TechM email – (Enroll here : https://aws.amazon.com/training/course-descriptions/cloud-practitioner-essentials/).
+o   Certification cost will be 25 USD per associate.
+
+
+AWS Solution Architect - Associate:
+
+o   No self-registration facility ; Hence we have made the nominations to Learning Team, so check your TechM email for further communications.
+o   Certification cost will be 38 USD per associate.
+
+Kindly let me know for any clarifications.
