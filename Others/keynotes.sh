@@ -1,5 +1,5 @@
 Excel Formula:
-="https://www.google.com/search?q="&LOWER(CONCATENATE(SUBSTITUTE(TRIM(A3)," ","+"),SUBSTITUTE(TRIM(B3)," ","+")))
+="https://www.google.com/search?q="&LOWER(CONCATENATE(SUBSTITUTE(TRIM(A3)," ","+"),"+"&SUBSTITUTE(TRIM(B3)," ","+")))&"+price"
 
 sqoop import --connect jdbc:oracle:thin:@10.78.78.150:58532/ODDBEFLO --query "select INCDNT_IVSTGN_RPT_FORM_NM,TRD_CD,TRD_CD_DS,CAST('x987731' as VARCHAR(10)) as CRTE_USR_ID,CURRENT_TIMESTAMP as CRTE_TS,UPDT_TS,CMPST_KY from BID_TRD_VS.INCDNT_IVSTGN_TRD_EXTRCT_VW WHERE \$CONDITIONS" --target-dir hdfs://bdedev/data/lgl_iir/raw/incdnt_ivstgn_trd_raw_test --fields-terminated-by '\001' --null-string '' --null-non-string '' --escaped-by '\\' --check-column UPDT_TS --incremental 'lastmodified' --hive-drop-import-delims --merge-key INCDNT_IVSTGN_RPT_FORM_NM --last-value '0001-01-01 00:00:00.000' --username BDESELECT --password-file hdfs://bdedev/projects/ews/lib/.bidwPassword -m 1
 
