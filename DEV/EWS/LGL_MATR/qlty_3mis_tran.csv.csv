@@ -1,0 +1,70 @@
+col_name,data_type,comment
+wrnty_clm_nb,string,A unique identifier of a Warranty Claim.
+wrnty_clm_ad_dt,date,The Date when the Warranty Claim was first inserted into this Oracle system (Oracle Data Mart).
+src_crte_ts,timestamp,The date and time on which the Warranty Claim Base row instance was added.
+vin_id,string,Unique identification for a vehicle.  
+fqi_wrnty_pfp_nb,string,The unique identifier of the primary Part/Part Family that is derived based on specific business for TCS/FQI Project. This PFP number is based on Received PFP and Derived PFP.
+wo_nb,string,The number assigned to the claim by the CPIA application. For  every repair order created at dealership a new work order is created in CPIA. 
+wol_nb,string,Part of CPIA claim number line received from dealer entry of claim
+vhcl_rpr_dt,date,Date when the vehicle associated with the Warranty claim has been last repaired.
+dlr_prt_am,double,The amount of payment to the dealer by the Sales Center for parts for this claim.  This amount includes parts profit and other cost that the manufacturer does not pay.
+dlr_lbr_am,double,The amount of payment to the dealer by the Sales Center for labor for this claim.  This amount may include costs that the manufacturer does not pay.
+dlr_totl_am,double,The total amount of payment to the dealer by the Sales Center for this claim.  This amount may include costs that the manufacturer does not pay.
+vhcl_mlg_nb,string,The vehicle odometer reading in miles when the repair order was first opened.  
+rcvd_pfp_nb,string,Part  Number that appears on a warranty claim. Received PFP was recorded when the claim was created at the dealership.
+svc_dlr_nb,string,Identification of the Dealer that will take ownership on the vehicle.
+wrnty_pfp_nb,string,Part  Number that appears on a Warranty Claim / GCARS Incident. Its a primary failed part number.
+tchncn_cmnt_tx,string,Actual comment received from the source systems. It is a free form text.
+cstmr_cmnt_tx,string,Actual comment received from the source systems. It is a free form text.
+rpt_exclsn_in,string,A value that indicates if the warranty claim is excluded from monthly KPI reporting. 
+dlr_nm,string,The full name for the Dealer Number value.
+dlr_cty_nm,string,The name of the city in which the Dealer that will take ownership on the vehicle is located.
+dlr_st_cd,string,Code value to identify a self-governing political entity.  Two character abbrevation for U.S. states and territories.
+dlr_phn_nb,string,The number is used in calling a particular telephone.
+nml_prdctn_mdl_cd,string,Code used by NML to represent a model
+vhcl_ln_cd,string,"Code designating the basic family of vehicles, products (or line of products)."
+vhcl_nmc_mdl_cd,string,Sales model code for NNA and NCI. It is called NMC model code for NNA and NCI model code for NCI. Identifier for a particular model of vehicle.
+rtl_sl_lse_dt,date,The date the vehicle was last retailed.
+orgnl_in_svc_dt,date,Date when the Vehicle was First Sold.
+mnfctg_dt,date,Date when the vehicle was manufactured.
+glbl_mrkt_cd,string,"Code to define what company the model belongs to i.e. NNA, NCI."
+mnfctr_vhcl_plnt_cd,string,"Code indicating the manufacturer plant which assembled the vehicle. It represents the plant where the vehicle is built. Examples:  Decherd, Canton, Smyrna"
+vhcl_yr_nb,string,The model year of a vehicle including a fraction for mid-year model introductions. 
+engn_prfx_8_dgt_cd,string,8-digit Engine Family code for the Vehicle Model.
+vhcl_engn_mdl_cd,string,A code that describes the type of a engine in vehicle.
+trnmsn_typ_cd,string,Code representing type of transmission installed in vehicle
+cv_in,string,Indicates whether the vehicle is a company vehicle or affiliate.
+cnsdtd_pfp_nb,string,The unique identifier of the primary Part/Part Family that failed in the Vehicle.
+cmn_pnc_id,string,"Part name code (PNC) is used to group parts into a family. Family grouping e.g. steering, wheel.  CPIA assigns a pnc to a claim. PNC is used only for primary parts. Incidental parts are not grouped into PNCs. A part can only be in one PNC. A PNC can have m"
+gnrl_cmnt_tx,string,Actual comment received from the source systems. It is a free form text.
+crctv_actn_prjct_rfrnc_id,string,Unique identifier for a Global Corrective Action Report (GCAR) Project (PRJCT)
+tsk_frc_isu_ctgry_tx,string,Corrective Action Project Reference Text is populated from the TaskForce screen when coding a Claim.
+tsk_frc_intrdcn_dt,date,"For this Taskforce, the date on which the claim was discussed for the first time."
+dfct_rspsbl_grp_cd,string,Group Code defines the area responsible for analyzing the defect related to the warranty claim
+prt_dspstn_tx,string,A description stating the disposition of the Primary Failed Part for that warranty claim as defined by Taskforce.
+pwr_trn_clm_clsftn_in,string,Indicates if the warranty claim is being classified as power train issue or not
+clm_aftr_cntr_msr_in,string,Indicator that states if the Claim is created after the implementation of a counter measure for the issue.
+prt_rcvd_dt,date,Date on which the Part were received.
+prt_gnrl_cmnt_tx,string,Comments regarding the parts status.
+tsk_frc_prjct_ky,int,A unique system generated numeric value that identifies a specific Taskforce Project row.
+,,
+fqi_ownr_nm,string,The full name of the FQI Reperesentative
+fqi_engnr_nm,string,The full name of the FQI Reperesentative
+fqi_engnr_mgr_nm,string,The full name of the FQI Reperesentative
+fqi_sts_ky,int,A unique system generated numeric value that identifies a specific Field Quality Investigation Status row.
+,,
+fqi_sts_nm,string,"In case there is no defined corrective action project for a Claim, an exceptional Status is defined for the claim."
+cstmr_isu_ky,int,A unique system generated numeric value that identifies a specific Customer Issue row.
+,,
+cstmr_isu_ds,string,The name of the Issue based on Voice of Customer
+cstmr_isu_ctgry_ky,int,A unique system generated numeric value that identifies a specific Customer Issue row.
+,,
+cstmr_isu_ctgry_ds,string,The name of the Issue based on Voice of Customer
+cstmr_stsfcn_team_cd,string,Code value to identify a Customer Satisfaction Team which handles specific part of Vehicle.  Integers representing specific part of Vehicle
+cstmr_stsfcn_team_nm,string,The full name for the Customer Satisfaction Team  Code value
+cstmr_stsfcn_parnt_team_cd,string,Code value to identify a Customer Satisfaction Team which handles specific part of Vehicle.  Integers representing specific part of Vehicle
+cstmr_stsfcn_parnt_team_nm,string,The full name for the Customer Satisfaction Team  Code value
+bsln_mnfctg_mnth_yr_dt,string,The start Month in YYYY-MM Format on which the manufacturing process for the Vehicle was started.
+mturty_mnth_yr_dt,string,Its the Month in YYYY-MM Format in which estimated 40% of the vehicle will be in service. Its usually after 2 Months past first manufacturing month.
+crte_usr_id,string,"The unique value of the person, program module, or service that initially created this Vehicle data row."
+crte_ts,timestamp,The date and time on which the Vehicle row instance was added.
