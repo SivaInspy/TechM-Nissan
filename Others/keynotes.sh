@@ -26,15 +26,18 @@ select rcvd_pfp_cmpnt_cstmr_stsfcn_team_ds, updt_ts from wrnty_clm_vhcl_solr whe
 
 EQUIP
 kinit -kt /etc/security/keytabs/X981138.keytab x981138@NMCORP.NISSAN.BIZ
-EWS:
-kinit -kt /etc/security/keytabs/x987731.keytab x987731@NMCORP.NISSAN.BIZ
+
+kinit -kt /etc/security/keytabs/x984614.keytab x984614@NMCORP.NISSAN.BIZ
 kinit -kt /etc/security/keytabs/x985427.keytab x985427@NMCORP.NISSAN.BIZ
 kinit -kt /etc/security/keytabs/x980066.keytab x980066@NMCORP.NISSAN.BIZ
+
+EWS:
+kinit -kt /etc/security/keytabs/x987731.keytab x987731@NMCORP.NISSAN.BIZ
 
 
 hdfs dfs -cp /projects/ews/scripts/spark/search/conf/drive_sqoop/sqoop_*.xml /projects/ews/scripts/spark/search/conf/iir_sqoop/
 oozie job --oozie http://usnencpl077.nmcorp.nissan.biz:11000/oozie --config sqoop_arch.properties -run
-
+oozie job --oozie http://usnencpl079.nmcorp.nissan.biz:11000/oozie --config sqoop_arch.properties -run
 
 hdfs dfs -rm /data/lgl_iir/raw/incdnt_ivstgn_raw/*
 hdfs dfs -rm /data/lgl_iir/raw/incdnt_ivstgn_trd_raw/*
@@ -385,3 +388,59 @@ o   No self-registration facility ; Hence we have made the nominations to Learni
 o   Certification cost will be 38 USD per associate.
 
 Kindly let me know for any clarifications.
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+'atom-text-editor':
+  'f10': 'editor:toggle-soft-wrap'
+'.platform-win32, .platform-linux':
+  'ctrl-h': 'find-and-replace:show'
+'.platform-win32 .find-and-replace .replace-container atom-text-editor':
+  'alt-a': 'find-and-replace:replace-all'
+'.platform-win32 .find-and-replace, .platform-linux .find-and-replace':
+  'alt-enter': 'find-and-replace:find-all'
+'.platform-win32 atom-text-editor, .platform-linux atom-text-editor':
+  'alt-f': 'find-and-replace:find-next-selected'
+  'alt-r': 'find-and-replace:select-next'
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+
+FOR /L %i IN (1,1,10) DO REN "%G" "Chapter %i.csv"
+for /r %G in (*.csv) do REN "%G" "Chapter %i.csv"
+
+for /r %%a in (*.csv) do ren "%%a" "%%~na.csv"
+for /L %%x in (1,1,20) do for /r %%a in (*.csv) do ECHO ren %%a Chapter %%x.csv
+
+SET /A COUNT=1
+FOR /r %G in (*.csv) DO (
+  REN "%G" "Chapter %COUNT%.csv"
+  SET /A COUNT+=1
+  ECHO %COUNT%
+)
+
+@echo off
+setlocal enableextensions enabledelayedexpansion
+set /a count = 1
+FOR /r %G in (*.csv) DO (
+  set /a count += 1
+  echo
+  REN "%G" "Chapter count!.csv"
+)
+endlocal && set count=%count%
+
+alter table
+
+equip.ir_cmbnd_vhcl_clm_lmtd_flds_dflt_fltrs_cmltv
+equip.ir_cmbnd_vhcl_clm_lmtd_flds_cmltv
+equip.ir_cmbnd_vhcl_clm_lmtd_flds_dflt_fltrs_vms_cms
+equip.ir_cmbnd_vhcl_clm_lmtd_flds_vms_cms
+
+populate_ir_combined_limited_set
+populate_ir_combined_limited_vms_cms_set
+populate_ir_combined_limited_default_filters_set
+populate_ir_combined_default_filters_vms_cms_set
+populate_ir_combined_limited_set_cmlt
+populate_ir_combined_limited_default_filters_set_cmlt
+
+create_and_populate_ir_combined_limited_set_default_filters_vmis_cmis.py  ir_cmbnd_vhcl_clm_lmtd_flds_dflt_fltrs_vms_cms
+create_and_populate_ir_combined_limited_set_default_filters.py  Full load of ir_cmbnd_vhcl_clm_lmtd_flds_dflt_fltrs
+0025141-200618141141175-oozie-oozi-W
