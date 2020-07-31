@@ -92,17 +92,17 @@ prts_dtl_mrkt_rply_pblc
 # *****************************************************************************************
 
 # EQUIP properties files location
-http://svn.na.nissan.biz/svn/NNA/NNA_TCS_FQI_RCode/branches/EQUIP/equip_reporting/Prd/properties/claims.properties
-http://svn.na.nissan.biz/svn/NNA/NNA_TCS_FQI_RCode/branches/EQUIP/equip_reporting/Prd/properties/consumeraffairs.properties
-http://svn.na.nissan.biz/svn/NNA/NNA_TCS_FQI_RCode/branches/EQUIP/equip_reporting/Prd/properties/equip.properties
-http://svn.na.nissan.biz/svn/NNA/NNA_TCS_FQI_RCode/branches/EQUIP/equip_reporting/Prd/properties/gear2.properties
-http://svn.na.nissan.biz/svn/NNA/NNA_TCS_FQI_RCode/branches/EQUIP/equip_reporting/Prd/properties/gears2.0-rawTables.properties
-http://svn.na.nissan.biz/svn/NNA/NNA_TCS_FQI_RCode/branches/EQUIP/equip_reporting/Prd/properties/gears3-0.properties
-http://svn.na.nissan.biz/svn/NNA/NNA_TCS_FQI_RCode/branches/EQUIP/equip_reporting/Prd/properties/incident_rate.properties
-http://svn.na.nissan.biz/svn/NNA/NNA_TCS_FQI_RCode/branches/EQUIP/equip_reporting/Prd/properties/monitor.properties
-http://svn.na.nissan.biz/svn/NNA/NNA_TCS_FQI_RCode/branches/EQUIP/equip_reporting/Prd/properties/qcs.properties
-http://svn.na.nissan.biz/svn/NNA/NNA_TCS_FQI_RCode/branches/EQUIP/equip_reporting/Prd/properties/solr_monitor.properties
-http://svn.na.nissan.biz/svn/NNA/NNA_TCS_FQI_RCode/branches/EQUIP/equip_reporting/Prd/properties/techline.properties
+/Prd/properties/claims.properties
+/Prd/properties/consumeraffairs.properties
+/Prd/properties/equip.properties
+/Prd/properties/gear2.properties
+/Prd/properties/gears2.0-rawTables.properties
+/Prd/properties/gears3-0.properties
+/Prd/properties/incident_rate.properties
+/Prd/properties/monitor.properties
+/Prd/properties/qcs.properties
+/Prd/properties/solr_monitor.properties
+/Prd/properties/techline.properties
 
 # EQUIP Worklow/coordinator location
 /projects/equip/oozie/Claims-Condense-Weekly/*
@@ -427,13 +427,6 @@ FOR /r %G in (*.csv) DO (
 )
 endlocal && set count=%count%
 
-alter table
-
-equip.ir_cmbnd_vhcl_clm_lmtd_flds_dflt_fltrs_cmltv
-equip.ir_cmbnd_vhcl_clm_lmtd_flds_cmltv
-equip.ir_cmbnd_vhcl_clm_lmtd_flds_dflt_fltrs_vms_cms
-equip.ir_cmbnd_vhcl_clm_lmtd_flds_vms_cms
-
 populate_ir_combined_limited_set
 populate_ir_combined_limited_vms_cms_set
 populate_ir_combined_limited_default_filters_set
@@ -441,6 +434,12 @@ populate_ir_combined_default_filters_vms_cms_set
 populate_ir_combined_limited_set_cmlt
 populate_ir_combined_limited_default_filters_set_cmlt
 
+create_and_populate_ir_combined_limited_set.py  ir_cmbnd_vhcl_clm_lmtd_flds
+create_and_populate_ir_combined_limited_set_vmis_cmis.py  ir_cmbnd_vhcl_clm_lmtd_flds_dflt_fltrs_vms_cms
+create_and_populate_ir_combined_limited_set_cumulative.hql
+create_and_populate_ir_combined_limited_set_default_filters.py  ir_cmbnd_vhcl_clm_lmtd_flds_dflt_fltrs
 create_and_populate_ir_combined_limited_set_default_filters_vmis_cmis.py  ir_cmbnd_vhcl_clm_lmtd_flds_dflt_fltrs_vms_cms
-create_and_populate_ir_combined_limited_set_default_filters.py  Full load of ir_cmbnd_vhcl_clm_lmtd_flds_dflt_fltrs
+create_and_populate_ir_combined_limited_set_default_filters_cumulative.hql
+
+
 0025141-200618141141175-oozie-oozi-W

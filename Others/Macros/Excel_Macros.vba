@@ -202,3 +202,109 @@ Sub SpaceDelimetedTextToTable()
         :=Array(Array(1, 1), Array(2, 1), Array(3, 1), Array(4, 1)), TrailingMinusNumbers:= _
         True
 End Sub
+Sub NissanJsonToTable()
+'
+' JsonToTable Macro
+'
+
+'
+    Range("A1").Select
+    Cells.Replace What:="[{""type"":""TABLE"",""data"":""", Replacement:="", _
+        LookAt:=xlPart, SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:= _
+        False, ReplaceFormat:=False
+    Selection.Replace What:="{""type"":""TABLE"",""data"":""", Replacement:="" _
+        , LookAt:=xlPart, SearchOrder:=xlByRows, MatchCase:=False, SearchFormat _
+        :=False, ReplaceFormat:=False
+    Selection.Replace What:="]", Replacement:="", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False
+    Selection.Replace What:="\n""},", Replacement:=":", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False
+    Selection.Replace What:="\t", Replacement:=",", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False
+    Selection.Replace What:="__date", Replacement:="", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False
+    Selection.Replace What:="__", Replacement:=".", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False
+    Selection.Replace What:="\n", Replacement:=".", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False
+    Selection.Replace What:=".""}", Replacement:="", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False
+    Selection.Replace What:="recordscount.", Replacement:="", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False
+
+    Range("A1").Select
+    Selection.TextToColumns Destination:=Range("A1"), DataType:=xlDelimited, _
+        TextQualifier:=xlDoubleQuote, ConsecutiveDelimiter:=True, Tab:=False, _
+        Semicolon:=False, Comma:=False, Space:=False, Other:=True, OtherChar _
+        :=":", FieldInfo:=Array(Array(1, 1), Array(2, 1), Array(3, 1), Array(4, 1), Array(5, _
+        1), Array(6, 1), Array(7, 1), Array(8, 1), Array(9, 1), Array(10, 1), Array(11, 1), Array(12 _
+        , 1), Array(13, 1), Array(14, 1), Array(15, 1), Array(16, 1), Array(17, 1), Array(18, 1), _
+        Array(19, 1), Array(20, 1), Array(21, 1), Array(22, 1), Array(23, 1), Array(24, 1), Array( _
+        25, 1), Array(26, 1), Array(27, 1), Array(28, 1), Array(29, 1), Array(30, 1), Array(31, 1), _
+        Array(32, 1), Array(33, 1), Array(34, 1), Array(35, 1), Array(36, 1), Array(37, 1), Array( _
+        38, 1), Array(39, 1), Array(40, 1), Array(41, 1), Array(42, 1), Array(43, 1), Array(44, 1), _
+        Array(45, 1), Array(46, 1), Array(47, 1), Array(48, 1), Array(49, 1), Array(50, 1), Array( _
+        51, 1), Array(52, 1), Array(53, 1), Array(54, 1), Array(55, 1), Array(56, 1), Array(57, 1), _
+        Array(58, 1), Array(59, 1), Array(60, 1), Array(61, 1), Array(62, 1), Array(63, 1), Array( _
+        64, 1), Array(65, 1), Array(66, 1), Array(67, 1), Array(68, 1), Array(69, 1), Array(70, 1), _
+        Array(71, 1), Array(72, 1), Array(73, 1), Array(74, 1), Array(75, 1)), _
+        TrailingMinusNumbers:=True
+    Range(Selection, Selection.End(xlToRight)).Select
+    Selection.Copy
+    Range("A2").Select
+    Selection.PasteSpecial Paste:=xlPasteAll, Operation:=xlNone, SkipBlanks:= _
+        False, Transpose:=True
+    Selection.End(xlUp).Select
+    Range(Selection, Selection.End(xlToRight)).Select
+    Application.CutCopyMode = False
+    Selection.ClearContents
+    Range("A2").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.TextToColumns Destination:=Range("A2"), DataType:=xlDelimited, _
+        TextQualifier:=xlDoubleQuote, ConsecutiveDelimiter:=True, Tab:=False, _
+        Semicolon:=False, Comma:=False, Space:=False, Other:=True, OtherChar _
+        :=",", FieldInfo:=Array(Array(1, 1), Array(2, 1), Array(3, 1)), _
+        TrailingMinusNumbers:=True
+
+End Sub
+Sub ConcatColumns()
+    Dim concatenator As String
+Rng:
+    On Error GoTo endSub
+    Set myRange = Application.InputBox("select two columns which you want to concat:", "", Type:=8)
+    If vbCancel = True Then
+    Exit Sub
+    End If
+
+    If myRange.Columns.Count = 2 Then
+    myRange.Select
+    Else
+    MsgBox "Select only 2 column range"
+    GoTo Rng
+    End If
+    ActiveCell.Offset(0, 2).Select
+    Selection.EntireColumn.Insert
+'    MsgBox "My range:" & myRange.Address
+    Selection.Offset(0, 0).Select
+    concatenator = Application.InputBox("Please enter the concatenation value", Default:=".")
+'    MsgBox "The concatenator:" & concatenator
+
+    For i = 0 To myRange.Rows.Count - 1
+        If ActiveCell.Offset(0, -2) = "" And ActiveCell.Offset(0, -1) = "" Then
+            ActiveCell.Formula = ""
+        Else
+            ActiveCell.Formula = ActiveCell.Offset(0, -2) & concatenator & ActiveCell.Offset(0, -1)
+        End If
+        ActiveCell.Offset(1, 0).Select
+    Next
+endSub:
+    Exit Sub
+End Sub

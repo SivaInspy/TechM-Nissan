@@ -1,14 +1,12 @@
 #########################################################################################################################################
 #                                                                                                                                       #
-#               Created by        : Nandha Kumaran M marimn1                                                                            #
-#               Last Updated by   : Nandha Kumaran M marimn1                                                                            #
-#               Last Updated date : 06/28/2018                                                                                          #
-#               Script Name       : incident_rate_daily.sh                                                                              #
-#               Description       : Load the IR tables daily                                                                            #
-#               Log file path     : /projects/equip/logs                                                                                #
+#   Created by          : Nandha Kumaran M marimn1                                                                                      #
+#   Last Updated by     : Sivakumar D x135756                                               																						#
+#   Last Updated date   : 07/28/2020  																									                                                #
+#   Script Name         : incident_rate_daily.sh                                                                                        #
+#   Description         : Load the IR tables daily                                                                                      #
+#                                                                                                                                       #
 #########################################################################################################################################
-
-
 
 # This fucntion is to load IR data using pyspark program
 

@@ -1,10 +1,12 @@
 #########################################################################################################################################
 #   																																	#
-#   Created by: Nandha Kumaran M marimn1																								#
-#   Last Updated by   : Nandha Kumaran M marimn1																						#
-#   Last Updated date : 07/03/2018  																									#
-#   Script Name   : create_and_populate_ir_combined_limited_set_vmis_cmis.py  															#
-#   Description   : Full load of ir_cmbnd_vhcl_clm_lmtd_flds_vms_cms																	#
+#   Created by          : Nandha Kumaran M marimn1																								#
+#   Last Updated by     : Sivakumar D x135756																						#
+#   Last Updated date   : 07/28/2020  																									#
+#   Script Name         : create_and_populate_ir_combined_limited_set_vmis_cmis.py  															#
+#   Description         : Full load of ir_cmbnd_vhcl_clm_lmtd_flds_vms_cms																	#
+#   Log file path       : /projects/equip/logs                                                                                                                     #
+#   																																	#
 #########################################################################################################################################
 
 from pyspark.sql import SparkSession

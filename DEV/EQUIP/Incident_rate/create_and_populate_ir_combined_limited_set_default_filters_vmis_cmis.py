@@ -1,10 +1,11 @@
 #########################################################################################################################################
 #   																																	#
 #   Created by          : Nandha Kumaran M marimn1																								#
-#   Last Updated by     : Nandha Kumaran M marimn1																						#
-#   Last Updated date   : 06/19/2018  																									#
+#   Last Updated by     : Sivakumar D x135756																						#
+#   Last Updated date   : 07/28/2020  																									#
 #   Script Name         : create_and_populate_ir_combined_limited_set_default_filters_vmis_cmis.py  											#
 #   Description         : Full load of ir_cmbnd_vhcl_clm_lmtd_flds_dflt_fltrs_vms_cms															#
+#   Log file path       : /projects/equip/logs                                                                                                                     #
 #   																																	#
 #########################################################################################################################################
 
