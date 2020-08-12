@@ -1,0 +1,155 @@
+<workflow-app xmlns="uri:oozie:workflow:0.4" name="EQUIP-incident-rate-daily-wf">
+    <parameters>
+        <property>
+            <name>oozie.action.sharelib.for.sqoop</name>
+            <value>sqoop,hive</value>
+        </property>
+		<property>
+			<name>oozie.action.max.output.data</name>
+			<value>4096</value>
+		</property>
+    </parameters>
+    <credentials>
+        <credential name="hs2-creds" type="hive2">
+            <property>
+                <name>hive2.jdbc.url</name>
+                <value>${jdbcUrl}</value>
+            </property>
+            <property>
+                <name>hive2.server.principal</name>
+                <value>hive/_HOST@NMCORP.NISSAN.BIZ</value>
+            </property>
+        </credential>
+        <credential name="hcat_creds" type="hcat">
+            <property>
+                <name>hcat.metastore.principal</name>
+                <value>hive/_HOST@NMCORP.NISSAN.BIZ</value>
+            </property>
+            <property>
+                <name>hcat.metastore.uri</name>
+                <value>${hcatUri}</value>
+            </property>
+            <property>
+                <name>hive.metastore.sasl.enabled</name>
+                <value>true</value>
+            </property>
+        </credential>
+    </credentials>
+    <start to="populate_ir_combined_limited_set"/>
+    <action name="populate_ir_combined_limited_set">
+        <shell xmlns="uri:oozie:shell-action:0.2">
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <configuration>
+                <property>
+                    <name>mapred.job.queue.name</name>
+                    <value>${queueName}</value>
+                </property>
+            </configuration>
+            <exec>${shscript}</exec>
+			<argument>${loadIRLimited}</argument>
+            <argument>${logFilePath}</argument>
+			<argument>${pythonscriptpath}</argument>
+            <file>${shscriptPath}</file>
+         </shell>
+        <ok to="populate_ir_combined_limited_vms_cms_set"/>
+        <error to="fail-email"/>
+	</action>
+    <action name="populate_ir_combined_limited_vms_cms_set">
+        <shell xmlns="uri:oozie:shell-action:0.2">
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <configuration>
+                <property>
+                    <name>mapred.job.queue.name</name>
+                    <value>${queueName}</value>
+                </property>
+            </configuration>
+            <exec>${shscript}</exec>
+			<argument>${loadIRLimitedVC}</argument>
+            <argument>${logFilePath}</argument>
+			<argument>${pythonscriptpath}</argument>
+            <file>${shscriptPath}</file>
+         </shell>
+        <ok to="populate_ir_combined_limited_default_filters_set"/>
+        <error to="fail-email"/>
+	</action>
+    <action name="populate_ir_combined_limited_default_filters_set">
+        <shell xmlns="uri:oozie:shell-action:0.2">
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <configuration>
+                <property>
+                    <name>mapred.job.queue.name</name>
+                    <value>${queueName}</value>
+                </property>
+            </configuration>
+            <exec>${shscript}</exec>
+			<argument>${loadDefaultSet}</argument>
+            <argument>${logFilePath}</argument>
+			<argument>${pythonscriptpath}</argument>
+            <file>${shscriptPath}</file>
+         </shell>
+        <ok to="populate_ir_combined_default_filters_vms_cms_set"/>
+        <error to="fail-email"/>
+	</action>
+    <action name="populate_ir_combined_default_filters_vms_cms_set">
+        <shell xmlns="uri:oozie:shell-action:0.2">
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <configuration>
+                <property>
+                    <name>mapred.job.queue.name</name>
+                    <value>${queueName}</value>
+                </property>
+            </configuration>
+            <exec>${shscript}</exec>
+			<argument>${loadDefaultVC}</argument>
+            <argument>${logFilePath}</argument>
+			<argument>${pythonscriptpath}</argument>
+            <file>${shscriptPath}</file>
+         </shell>
+        <ok to="populate_ir_combined_limited_set_cmlt"/>
+        <error to="fail-email"/>
+	</action>
+
+    <action cred="hcat_creds" name="populate_ir_combined_limited_set_cmlt">
+        <hive xmlns="uri:oozie:hive-action:0.2">
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+			<script>${loadIRLimitedCum}</script>
+	    <param>dbName=${database}</param>
+        </hive>
+        <ok to="populate_ir_combined_limited_default_filters_set_cmlt"/>
+        <error to="fail-email"/>
+    </action>
+
+    <action cred="hcat_creds" name="populate_ir_combined_limited_default_filters_set_cmlt">
+        <hive xmlns="uri:oozie:hive-action:0.2">
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+			<script>${loadDefaultCum}</script>
+	    <param>dbName=${database}</param>
+        </hive>
+        <ok to="end"/>
+        <error to="fail-email"/>
+    </action>
+
+    <action name="fail-email">
+       <email xmlns="uri:oozie:email-action:0.2">
+          <to>ISEQUIPBDE@NMCorp.Nissan.Biz</to>
+          <subject>[${env}] IR tables - load job failed.</subject>
+          <body>IR tables - load job did not run successfully.
+          Here is the error message [${wf:errorMessage(wf:lastErrorNode())}]
+          Thanks,
+          Oozie
+          </body>
+       </email>
+       <ok to="fail"/>
+       <error to="fail"/>
+    </action>
+    <kill name="fail">
+        <message>Shell action failed, error message[${wf:errorMessage(wf:lastErrorNode())}]</message>
+    </kill>
+    <end name="end"/>
+</workflow-app>
