@@ -1,0 +1,11 @@
+"*":
+  core:
+    telemetryConsent: "limited"
+    uriHandlerRegistration: "always"
+  editor:
+    fontSize: 15
+  "exception-reporting":
+    userId: "ba30ac98-98af-4f76-a8dd-2eec34252777"
+  github: {}
+  welcome:
+    showOnStartup: false

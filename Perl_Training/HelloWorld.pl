@@ -50,3 +50,15 @@ my $s8 = "Learning Perl is easy\n";
 my $sub = "Perl";
 my $p = index($s8,$sub); # rindex($s,$sub);
 print(q\The substring "$sub" found at position "$p" in string "$s8" ggfgrhyjryuk7kl\,"\n");
+
+# extract substring
+my $s9 = "Green is my favorite color";
+print($s9,"\n");
+my $color  = substr($s9, 0, 5);      # Green
+my $end    = substr($s9, -5);        # color
+
+print($end,":",$color,"\n");
+
+# replace substring
+substr($s9, 0, 5, "Red"); #Red is my favorite color
+print($s9,"\n");
