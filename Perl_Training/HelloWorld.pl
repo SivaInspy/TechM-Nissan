@@ -3,14 +3,14 @@
 use warnings;
 print("Hello, World!\n");
 
-$x = 10;
+my $x = 10;
 $y = 20.2;
 $s = "Perl string";
 $t = $x + $y;
 print "$t $s\n";
 use strict;
-my $color = 'red';
-print "Your favorite color is ".$color."\n";
+my $color1 = 'red';
+print "Your favorite color is ".$color1."\n";
 
 use strict;
 my $amount = 20;
@@ -62,3 +62,98 @@ print($end,":",$color,"\n");
 # replace substring
 substr($s9, 0, 5, "Red"); #Red is my favorite color
 print($s9,"\n");
+
+
+print(chr(80),"\n");
+print(ord($end),"\n");
+
+my $text1 = sprintf("%03d", '7');
+my $text2 = sprintf("%03d", '123');
+my $text3 = sprintf("%04d", '123');
+my $text4 = sprintf("%8s", 'Geeks');
+my $text5 = sprintf("%-8s", 'Geeks');
+print "$text1\n$text2\n$text3\n$text4\n$text5\n";
+
+print 10 + 20, "\n";
+print 20 - 10, "\n";
+print 10 * 20, "\n";
+print 20 / 10, "\n";
+
+print 10 + 20/2 - 5 * 2 , "\n";
+print (((10 + 20)/2 - 5) * 2);
+
+print "\n";
+
+print 2**3, "\n";
+print 3**4, "\n";
+
+
+print 4 % 2, "\n";
+print 5 % 2, "\n";
+
+
+my $a1 = 0b0101; # 5
+my $b1 = 0b0011; # 3
+# Binary 32 16 8 4 2 1
+# AND     000001
+# OR      000111
+# NOR     000110
+# RShift    000010
+my $c1 = $a1 & $b1; # 0001 or 1
+print $c1, "\n";
+
+$c1 = $a1 | $b1; # 0111 or 7
+print $c1, "\n";
+
+$c1 = $a1 ^ $b1; # 0110 or 6
+print $c1, "\n";
+
+$c1 = ~$a1; # 11111111111111111111111111111010 (64bits computer) or 4294967290
+print $c1, "\n";
+
+$c1 = $a1 >> 1; # 0101 shift right 1 bit, 010 or 2
+print $c1, "\n";
+
+$c1 = $a1 << 1; # 0101 shift left 1 bit, 1010 or 10
+print $c1, "\n";
+
+
+my $a2 = 10;
+my $b2 = 20;
+
+print $a2 <=> $b2, "\n";
+
+$b2 = 10;
+print $a2 <=> $b2, "\n";
+
+$b2 = 5;
+print $a2 <=> $b2, "\n";
+
+# Concatenation
+print "This is" . " concatenation operator" . "\n";
+print "a message " x 4, "\n";
+
+# chomp of user input
+my $s10;
+chomp($s10 = <STDIN>);
+print $s10,"\n";
+
+
+my $string1 = "This is test";
+my $retval1  = chomp( $string1 );
+print " Choped String is : $string1\n";
+print " Number of characters removed : $retval1\n";
+
+my $string2 = "This is test\n";
+my $retval2  = chomp( $string2 );
+
+print " Choped String is : $string2\n";
+print " Number of characters removed : $retval2\n";
+
+# list
+print(()); # display nothing
+print("\n");
+print(10,20,30); # display 102030
+print("\n");
+print("this", "is", "a","list"); # display: thisisalist
+print("\n");
