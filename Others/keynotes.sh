@@ -443,3 +443,164 @@ create_and_populate_ir_combined_limited_set_default_filters_cumulative.hql
 
 
 0025141-200618141141175-oozie-oozi-W
+
+
+spark-submit --master yarn --deploy-mode cluster --num-executors 30 --executor-memory 8g --driver-memory 5g hdfs://bdedev/projects/equip/scripts/spark/create_and_populate_ir_combined_limited_set.py
+spark-submit --master yarn --deploy-mode cluster --num-executors 30 --executor-memory 8g --driver-memory 5g hdfs://bdedev/projects/equip/scripts/spark/create_and_populate_ir_combined_limited_set_vmis_cmis.py
+spark-submit --master yarn --deploy-mode cluster --num-executors 30 --executor-memory 8g --driver-memory 5g hdfs://bdedev/projects/equip/scripts/spark/create_and_populate_ir_combined_limited_set_default_filters.py
+
+
+drop table ir_cmbnd_vhcl_clm_lmtd_flds;
+drop table ir_cmbnd_vhcl_clm_lmtd_flds_dflt_fltrs_vms_cms;
+drop table ir_cmbnd_vhcl_clm_lmtd_flds_dflt_fltrs;
+drop table ir_cmbnd_vhcl_clm_lmtd_flds_dflt_fltrs_vms_cms;
+
+ir_cmbnd_vhcl_clm_lmtd_flds
+ir_cmbnd_vhcl_clm_lmtd_flds_dflt_fltrs_vms_cms
+ir_cmbnd_vhcl_clm_lmtd_flds_dflt_fltrs
+ir_cmbnd_vhcl_clm_lmtd_flds_dflt_fltrs_vms_cms
+
+CREATE TABLE EMP
+(
+   EMPNO      NUMBER,
+   ENAME      VARCHAR (10),
+   JOB        VARCHAR (9),
+   MGR        NUMBER,
+   SAL        NUMBER,
+   COMM       NUMBER,
+   DEPTNO     NUMBER
+);
+INSERT INTO EMP VALUES
+(7369, 'SMITH', 'CLERK', 7902, 800, 50, 20);
+INSERT INTO EMP VALUES
+(7499, 'ALLEN', 'SALESMAN', 7698, 1600, 300, 30);
+INSERT INTO EMP VALUES
+(7521, 'WARD', 'SALESMAN', 7698, 1250, 500, 30);
+INSERT INTO EMP VALUES
+(7566, 'JONES', 'MANAGER', 7839, 2975, NULL, 20);
+INSERT INTO EMP VALUES
+(7654, 'MARTIN', 'SALESMAN', 7698, 1250, 1400, 30);
+INSERT INTO EMP VALUES
+(7698, 'BLAKE', 'MANAGER', 7839, 2850, NULL, 30);
+INSERT INTO EMP VALUES
+(7782, 'CLARK', 'MANAGER', 7839, 2450, NULL, 10);
+INSERT INTO EMP VALUES
+(7788, 'SCOTT', 'ANALYST', 7566, 3000, NULL, 20);
+INSERT INTO EMP VALUES
+(7839, 'KING', 'PRESIDENT', NULL, 5000, NULL, 10);
+INSERT INTO EMP VALUES
+(7844, 'TURNER', 'SALESMAN', 7698, 1500, 0, 30);
+INSERT INTO EMP VALUES
+(7876, 'ADAMS', 'CLERK', 7788, 1100, NULL, 20);
+INSERT INTO EMP VALUES
+(7900, 'JAMES', 'CLERK', 7698, 950, NULL, 30);
+INSERT INTO EMP VALUES
+(7902, 'FORD', 'ANALYST', 7566, 3000, NULL, 20);
+INSERT INTO EMP VALUES
+(7934, 'MILLER', 'CLERK', 7782, 1300, NULL, 10);
+CREATE TABLE DEPT
+(
+   DEPTNO   NUMBER,
+   DNAME    VARCHAR (14),
+   LOC      VARCHAR (13)
+);
+INSERT INTO DEPT VALUES (10, 'ACCOUNTING', 'NEW YORK');
+INSERT INTO DEPT VALUES (20, 'RESEARCH', 'DALLAS');
+INSERT INTO DEPT VALUES (30, 'SALES', 'CHICAGO');
+INSERT INTO DEPT VALUES (40, 'OPERATIONS', 'BOSTON');
+COMMIT;
+
+
+INSERT INTO EMP VALUES (7269, 'SMITHSH', 'CLERKHJ', 7902, 8000, 51, 21);
+INSERT INTO EMP VALUES (7270, 'SMITHHS', 'CLERKJH', 7903, 8500, 52, 22);
+SELECT DEPTNO, MAX(SAL) FROM EMP GROUP BY DEPTNO;
+
+select * from
+(
+select
+ EMPNO,
+ ENAME ,
+ DEPTNO ,
+ SAL ,
+ ROW_NUMBER( ) over( partition by DEPTNO order by id desc) as rev_id
+from
+(
+select
+ ROW_NUMBER( ) over( partition by DEPTNO order by SAL) as id,
+ EMPNO,
+ ENAME ,
+ DEPTNO ,
+ SAL
+from EMP
+)
+t where id<=5
+)t where rev_id=1
+
+
+SELECT * FROM (
+  SELECT
+    ROW_NUMBER() OVER (ORDER BY SAL ASC) AS rownumber,
+    EMPNO,
+    ENAME ,
+    DEPTNO ,
+    SAL
+  FROM emp
+)
+WHERE rownumber = 5
+
+
+
+
+val data =sc.textFile("/yyy/yyy/yyy")
+# You can convert the RDD to DataFrame and then save it.
+data.toDF().write.format("orc").save("/path/to/save/file")
+# To read it back, use sqlContext
+import org.apache.spark.sql._
+val sqlContext = new org.apache.spark.sql.hive.HiveContext(sc)
+val data = sqlContext.read.format("orc").load("/path/to/file/*")
+
+# Spark 2.0
+spark = SparkSession.builder.appname("WorstMozies").getOrCreate()
+spark.SparkContext.textFile("C:/Programs/s.txt") # RDD
+spark.read.text("C:/Programs/s.txt").rdd
+
+spark.createDataFrame(WorstMovies).cache()
+
+Spark 1.0
+spark_conf = SparkConf().setAppname("WorstMovies")
+sc = SparkContext(conf=spark_conf)
+sc.textFile("C:/Programs/s.txt")
+
+sqlcntxt = SQLContext(sc)
+hivecntxt = HiveContext(sc)
+
+spark-submit --master yarn --deploy-mode cluster --num-executors 30 --executor-memory 8g --driver-memory 5g hdfs://bdedev/projects/equip/scripts/spark/create_and_populate_ir_combined_limited_set_default_filters_vmis_cmis.py
+
+val df = sqlContext.read.format("jdbc").options(Map("url" -> "jdbc:oracle:thin:@192.168.100.200:1521:ORCL", "user" -> "USER1", "password" -> "password", "dbtable" -> "employee", "driver" -> "oracle.jdbc.driver.OracleDriver")).load()
+df: org.apache.spark.sql.DataFrame = [EID: decimal(10,0), NAME: string, SALARY: string, DESTINATION: string, EMAIL: string, TEXT: string, PHONENUMBER: string, STATE: string]
+
+sqoop import --connect jdbc:oracle:thin:@10.78.78.150:58532/ODDBEFLO --query "select INCDNT_IVSTGN_RPT_FORM_NM,TRD_CD,TRD_CD_DS,CAST('x987731' as VARCHAR(10)) as CRTE_USR_ID,CURRENT_TIMESTAMP as CRTE_TS,UPDT_TS,CMPST_KY from BID_TRD_VS.INCDNT_IVSTGN_TRD_EXTRCT_VW WHERE \$CONDITIONS" --target-dir hdfs://bdedev/data/lgl_iir/raw/incdnt_ivstgn_trd_raw_test --fields-terminated-by '\001' --null-string '' --null-non-string '' --escaped-by '\\' --check-column UPDT_TS --incremental 'lastmodified' --hive-drop-import-delims --merge-key INCDNT_IVSTGN_RPT_FORM_NM --last-value '0001-01-01 00:00:00.000' --username BDESELECT --password-file hdfs://bdedev/projects/ews/lib/.bidwPassword -m 1
+
+LOAD DATA LOCAL INPATH '/home/user/test_details.txt' INTO TABLE test_details_txt;
+INSERT INTO TABLE test_details_orc SELECT * FROM test_details_txt;
+
+create table stock(date string, stock string) row format delimited fields terminated by ',' stored as textfile/parquet;
+load data local inpath pstock.txt into table pstock;
+select * from stock limit 10;
+insert into table pstock select * from stock;
+
+
+SELECT 
+      D.Name AS Department,
+      E.Name AS Employee,
+      E.Salary AS Salary,
+      Count(E2.Salary) as Count_employees_who_earn_more
+FROM Employee E
+INNER JOIN Department D
+ON E.DepartmentId = D.Id
+LEFT JOIN Employee E2 ON
+    e2.DepartmentId = E.DepartmentId
+    AND E2.Salary > E.Salary
+GROUP BY  D.Name ,
+      E.Name ,
+      E.Salary
