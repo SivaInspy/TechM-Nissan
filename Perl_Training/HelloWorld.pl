@@ -134,9 +134,9 @@ print "This is" . " concatenation operator" . "\n";
 print "a message " x 4, "\n";
 
 # chomp of user input
-my $s10;
-chomp($s10 = <STDIN>);
-print $s10,"\n";
+# my $s10;
+# chomp($s10 = <STDIN>);
+# print $s10,"\n";
 
 
 my $string1 = "This is test";
@@ -156,4 +156,52 @@ print("\n");
 print(10,20,30); # display 102030
 print("\n");
 print("this", "is", "a","list"); # display: thisisalist
+print("\n");
+
+my $x2 = 10;
+my $s11 = "a string";
+print("complex list", $x2 , $s11 ,"\n");
+
+
+# qw
+print('red','green','blue'); # redgreenblue
+print("\n");
+
+print(qw(red green blue)); # redgreenblue
+print("\n");
+
+
+# Different list format in qw
+print(qw\this is first list\); # redgreenblue
+print("\n");
+print(qw{this is second list}); # redgreenblue
+print("\n");
+print(qw[this is third list]); # redgreenblue
+print("\n");
+
+# Accessing list element
+print(
+     (1,2,3)[0] # 1 first element
+);
+print "\n"; # new line
+
+print(
+     (1,2,3)[2] # 3 third element
+);
+print "\n"; # new line
+
+print((1,2,3,4,5)[0,2,3]);
+print "\n"; # new line
+print((1..100));
+print "\n"; # new line
+print('a' .. 'z');
+print "\n"; # new line
+
+# Array
+my @days = qw(Mon Tue Wed Thu Fri Sat Sun);
+print("@days" ,"\n");
+
+# Accessing Array Elements
+print($days[0]);
+
 print("\n");
