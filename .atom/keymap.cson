@@ -38,3 +38,15 @@
 
 '.platform-win32 atom-text-editor, .platform-linux atom-text-editor':
   'f5': 'script:run'
+
+'atom-text-editor':
+  'f10': 'editor:toggle-soft-wrap'
+'.platform-win32, .platform-linux':
+  'ctrl-h': 'find-and-replace:show'
+'.platform-win32 .find-and-replace .replace-container atom-text-editor':
+  'alt-a': 'find-and-replace:replace-all'
+'.platform-win32 .find-and-replace, .platform-linux .find-and-replace':
+  'alt-enter': 'find-and-replace:find-all'
+'.platform-win32 atom-text-editor, .platform-linux atom-text-editor':
+  'alt-f': 'find-and-replace:find-next-selected'
+  'alt-r': 'find-and-replace:select-next'
