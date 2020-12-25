@@ -59,7 +59,7 @@ export interface ITerminal {
   /**
    * Set the pty socket encoding.
    */
-  setEncoding(encoding: string): void;
+  setEncoding(encoding: string | null): void;
 
   /**
    * Resume the pty socket.
@@ -125,7 +125,7 @@ export interface IPtyForkOptions extends IBasePtyForkOptions {
 }
 
 export interface IWindowsPtyForkOptions extends IBasePtyForkOptions {
-  experimentalUseConpty?: boolean;
+  useConpty?: boolean;
   conptyInheritCursor?: boolean;
 }
 

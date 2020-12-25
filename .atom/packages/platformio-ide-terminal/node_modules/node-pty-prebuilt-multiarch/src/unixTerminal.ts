@@ -12,8 +12,14 @@ import { assign } from './utils';
 let pty: IUnixNative;
 try {
   pty = require('../build/Release/pty.node');
-} catch {
-  pty = require('../build/Debug/pty.node');
+} catch (outerError) {
+  try {
+    pty = require('../build/Debug/pty.node');
+  } catch (innerError) {
+    console.error('innerError', innerError);
+    // Re-throw the exception from the Release require if the Debug require fails as well
+    throw outerError;
+  }
 }
 
 const DEFAULT_FILE = 'sh';
@@ -62,6 +68,7 @@ export class UnixTerminal extends Terminal {
     }
 
     const cwd = opt.cwd || process.cwd();
+    env.PWD = cwd;
     const name = opt.name || env.TERM || DEFAULT_NAME;
     env.TERM = name;
     const parsedEnv = this._parseEnv(env);
@@ -251,6 +258,9 @@ export class UnixTerminal extends Terminal {
    */
 
   public resize(cols: number, rows: number): void {
+    if (cols <= 0 || rows <= 0 || isNaN(cols) || isNaN(rows) || cols === Infinity || rows === Infinity) {
+      throw new Error('resizing must be done using positive cols and rows');
+    }
     pty.resize(this._fd, cols, rows);
     this._cols = cols;
     this._rows = rows;

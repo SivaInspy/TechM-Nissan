@@ -46,7 +46,7 @@ export class WindowsTerminal extends Terminal {
     this._deferreds = [];
 
     // Create new termal.
-    this._agent = new WindowsPtyAgent(file, args, parsedEnv, cwd, this._cols, this._rows, false, opt.experimentalUseConpty, opt.conptyInheritCursor);
+    this._agent = new WindowsPtyAgent(file, args, parsedEnv, cwd, this._cols, this._rows, false, opt.useConpty, opt.conptyInheritCursor);
     this._socket = this._agent.outSocket;
 
     // Not available until `ready` event emitted.
@@ -142,7 +142,7 @@ export class WindowsTerminal extends Terminal {
    */
 
   public resize(cols: number, rows: number): void {
-    if (cols <= 0 || rows <= 0) {
+    if (cols <= 0 || rows <= 0 || isNaN(cols) || isNaN(rows) || cols === Infinity || rows === Infinity) {
       throw new Error('resizing must be done using positive cols and rows');
     }
     this._defer(() => {

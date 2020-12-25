@@ -1,5 +1,8 @@
 "*":
   core:
+    disabledPackages: [
+      "script"
+    ]
     telemetryConsent: "limited"
     uriHandlerRegistration: "always"
   editor:

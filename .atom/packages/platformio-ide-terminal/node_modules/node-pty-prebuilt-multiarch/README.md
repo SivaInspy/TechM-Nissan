@@ -22,11 +22,11 @@ is extremely easy.  You merely have to change your `node-pty` dependency to
 ## How It Works
 
 We maintain a parallel fork of the `node-pty` codebase that will be updated as new
-releases are shipped.  When we merge new updates to the code into the `prebuild`
+releases are shipped.  When we merge new updates to the code into the `prebuilt-multiarch`
 branch, new prebuilt packages for our supported Node.js and Electron versions
 are updated to the corresponding [GitHub release](https://github.com/oznu/node-pty-prebuilt-multiarch/releases).
 
-When `node-pty-prebuilt` is installed as a package dependency, the install script
+When `node-pty-prebuilt-multiarch` is installed as a package dependency, the install script
 checks to see if there's a prebuilt package on this repo for the OS, ABI version,
 and architecture of the current process and then downloads it, extracting it into
 the module path.  If a corresponding prebuilt package is not found, `node-gyp`

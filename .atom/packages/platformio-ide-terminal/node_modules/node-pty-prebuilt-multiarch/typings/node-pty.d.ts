@@ -50,9 +50,10 @@ declare module 'node-pty-prebuilt-multiarch' {
      * If unset, incoming data will be delivered as raw bytes (Buffer type).
      * By default 'utf8' is assumed, to unset it explicitly set it to `null`.
      */
-    encoding?: string;
+    encoding?: string | null;
 
     /**
+     * (EXPERIMENTAL)
      * Whether to enable flow control handling (false by default). If enabled a message of `flowControlPause`
      * will pause the socket and thus blocking the slave program execution due to buffer back pressure.
      * A message of `flowControlResume` will resume the socket into flow mode.
@@ -63,11 +64,13 @@ declare module 'node-pty-prebuilt-multiarch' {
     handleFlowControl?: boolean;
 
     /**
+     * (EXPERIMENTAL)
      * The string that should pause the pty when `handleFlowControl` is true. Default is XOFF ('\x13').
      */
     flowControlPause?: string;
 
     /**
+     * (EXPERIMENTAL)
      * The string that should resume the pty when `handleFlowControl` is true. Default is XON ('\x11').
      */
     flowControlResume?: string;
@@ -84,13 +87,13 @@ declare module 'node-pty-prebuilt-multiarch' {
 
   export interface IWindowsPtyForkOptions extends IBasePtyForkOptions {
     /**
-     * Whether to use the experimental ConPTY system on Windows. When this is not set, ConPTY will
-     * be used when the Windows build number is >= 18309 (it's available in 17134 and 17692 but is
-     * too unstable to enable by default).
+     * Whether to use the ConPTY system on Windows. When this is not set, ConPTY will be used when
+     * the Windows build number is >= 18309 (instead of winpty). Note that ConPTY is available from
+     * build 17134 but is too unstable to enable by default.
      *
      * This setting does nothing on non-Windows.
      */
-    experimentalUseConpty?: boolean;
+    useConpty?: boolean;
 
     /**
      * Whether to use PSEUDOCONSOLE_INHERIT_CURSOR in conpty.
@@ -124,6 +127,7 @@ declare module 'node-pty-prebuilt-multiarch' {
     readonly process: string;
 
     /**
+     * (EXPERIMENTAL)
      * Whether to handle flow control. Useful to disable/re-enable flow control during runtime.
      * Use this for binary data that is likely to contain the `flowControlPause` string by accident.
      */
